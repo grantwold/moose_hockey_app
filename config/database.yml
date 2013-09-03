@@ -15,7 +15,7 @@ development:
   database: moose_hockey_app_development
   pool: 5
   username: root
-  password:
+  password: password
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: moose_hockey_app_test
   pool: 5
   username: root
-  password:
+  password: password
   host: localhost
 
 production:
