@@ -1,15 +1,8 @@
 MooseHockeyApp::Application.routes.draw do
-  get "static_pages/home"
 
-  get "static_pages/calendar"
+ root to: 'static_pages#home'
 
-  get "static_pages/roster"
-
-  get "static_pages/player_pages"
-
-  get "static_pages/team_history"
-
-  get "static_pages/game_archive"
+ match 'calendar', to: 'static_pages#calendar'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,11 +1,29 @@
 require 'spec_helper'
 
-describe "StaticPages" do
-  describe "GET /static_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get static_pages_index_path
-      response.status.should be(200)
-    end
-  end
+describe "Static Pages" do
+	
+	subject { page }
+
+	shared_examples_for "all static pages" do
+		it { should have_selector('h1', text: heading) }
+		it { should have_selector('title',  text: full_title(page_title)) }
+	end
+
+	describe "Home page" do
+		before { visit root_path }
+		let(:heading)    { 'Moose Hockey' }
+		let(:page_title) { '' }
+
+		it_should_behave_like "all static pages"
+
+		it { should_not have_selector 'title', text: '| Home' }
+	end
+
+	describe "Calendar page" do
+		before { visit calendar_path }
+		let(:heading) { 'Calendar' }
+		let(:page_title) { 'Calendar' }
+
+		it_should_behave_like "all static pages"
+	end
 end
