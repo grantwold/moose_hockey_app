@@ -1,8 +1,9 @@
 MooseHockeyApp::Application.routes.draw do
   resources :players
 
-
   root to: 'static_pages#home'
+
+  match '/newplayer', to: 'players#new'
 
   match 'calendar', to: 'static_pages#calendar'
 
