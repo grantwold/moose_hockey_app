@@ -1,8 +1,10 @@
 MooseHockeyApp::Application.routes.draw do
+  resources :players
 
- root to: 'static_pages#home'
 
- match 'calendar', to: 'static_pages#calendar'
+  root to: 'static_pages#home'
+
+  match 'calendar', to: 'static_pages#calendar'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
