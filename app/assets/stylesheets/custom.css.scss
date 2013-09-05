@@ -36,8 +36,22 @@ textarea {
 
 /* typography */
 
+@font-face {
+    font: {
+       family: 'orbitron';
+       weight: 'normal';
+       style: 'normal';
+    }
+    src: asset-url('orbitron-medium-webfont.eot', font);
+    src: asset-url('orbitron-medium-webfont.eot', font) format('embedded-opentype'),
+         asset-url('orbitron-medium-webfont.woff', font) format('woff'),
+         asset-url('orbitron-medium-webfont.ttf', font) format('truetype'),
+         asset-url('orbitron-medium-webfont.svg', font) format('svg')
+}
+
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
+	font-family: orbitron;
 }
 
 h1 {
@@ -59,6 +73,7 @@ h2 {
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+	font-family: orbitron;
 }
 
 /* header */
@@ -71,6 +86,7 @@ p {
 			a {
 				color: #FFFBBA;
 				font-size: 1.2em;
+				font-family: orbitron;
 			}
 		}
 	}
