@@ -21,24 +21,47 @@ describe "Player pages" do
 			it "should not create a player" do
 				expect { click_button submit }.not_to change(Player, :count)
 			end
+
+			describe "after submission" do
+				before { click_button submit }
+
+				it { should have_selector('title', text: "New Player") }
+				it { should have_content('error') }
+			end
 		end
 
 		describe "with valid information" do
 			before do
-				fill_in "First Name",      		with: "Example"
-				fill_in "Last Name",       		with: "Player"
-				fill_in "Number",         	 	with: 00
-				fill_in "Games Played",    		with: 18
-				fill_in "Goals",		   		with: 15
-				fill_in "Assists",		   		with: 10
-				fill_in "SHG", 	with: 1
-				fill_in "PPG",		with: 3
-				fill_in "PIM", with: 12
+				fill_in "First Name", with: "Example"
+				fill_in "Last Name",  with: "Player"
+				fill_in "Number",     with: 00
+				fill_in "GP",    	  with: 18
+				fill_in "Goals",	  with: 15
+				fill_in "Assists",	  with: 10
+				fill_in "SHG", 		  with: 1
+				fill_in "PPG",		  with: 3
+				fill_in "PIM", 		  with: 12
 			end
 
 			it "should create a player" do
 				expect { click_button submit }.to change(Player, :count).by(1)
 			end
+
+			describe "after saving the player" do
+				before { click_button submit }
+				let(:player) { Player.find_by_firstname('Example') }
+
+				it { should have_selector('title', text: "#{player.firstname} #{player.lastname}") }
+				it { should have_selector('div.alert.alert-success', text: 'New player created') }
+			end
 		end
+	end
+
+	describe "player show page" do
+		let(:player) { FactoryGirl.create(:player) }
+		before { visit player_path(player) }
+
+		it { should have_selector('h1',    text: "#{player.firstname} #{player.lastname}") }
+		it { should have_selector('title', text: "#{player.firstname} #{player.lastname}") }
 	end
 end
