@@ -2,6 +2,7 @@
 
 /* mixins, variables, etc. */
 
+
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -15,11 +16,19 @@ html {
 }
 
 body {
-	background-image: url('background.jpg');
-	padding-top: 60px; /* adjusts gap between top of window and navbar */
+	background: white;
+	/* background-image: url('background.jpg'); */
+	padding-top: 30px;/* adjusts gap between top of window and navbar */
 	.page-body {
-		padding-bottom: 50px;
-		background: #FEFBE6;
+		padding-top: 180px;
+		padding-bottom: 10px;
+		background: #FFF8E6;
+	}
+	.rounded-corners {
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
 	}
 }
 
@@ -62,8 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 3em;
 	letter-spacing: -2px;
-	margin-bottom: 30px;
-	text-align: center;
+	margin-bottom: 10px;
+	text-align: left;
 }
 
 h2 {
@@ -111,23 +120,12 @@ p {
 #logo {
 	position: absolute;
 	z-index: 2000;
-	left: -230px;
-	top: -50px;
+	left: -140px;
+	top: -10px;
 	float: left;
 }
 
 /* body */
-
-.page-body {
-	background: white;
-}
-
-.rounded-corners {
-	-moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
-}
 
 /* calendar */
 
@@ -141,20 +139,6 @@ input, textarea, select, .uneditable-input {
 	margin-bottom: 15px;
 	@include box_sizing;
 }
-
-#error_explanation {
-	color: #f00;
-	ul {
-		list-style: none;
-		margin: 0 0 18px 0;
-	}
-}
-
-.field_with_errors {
-	@extend .control-group;
-	@extend .error;
-}
-
 
 /* footer */
 
@@ -187,13 +171,13 @@ footer {
 
 aside {
 	section {
-		padding: 10px 0;
 		border-top: 1px solid black;
 		&:first-child {
 			/* adjusts the profile picture and stats */
 			border: 0;
 			padding-top: 130px;
 			padding-left: 60px;
+			padding-right: 0px;
 		}
 		span {
 			display: block;
@@ -218,3 +202,4 @@ aside {
 	margin-top: 45px;
 	@include box_sizing;
 }
+

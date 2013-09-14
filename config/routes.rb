@@ -6,6 +6,7 @@ MooseHockeyApp::Application.routes.draw do
   match '/newplayer', to: 'players#new'
 
   match 'calendar', to: 'static_pages#calendar'
+  match 'roster', to: 'static_pages#roster'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

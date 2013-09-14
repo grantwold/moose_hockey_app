@@ -23,7 +23,8 @@ describe Player do
 	before do
 		@player = Player.new(firstname: "Example", 
 							 lastname: "Player", 
-							 number: 00, 
+							 number: 00,
+							 position: "Right Wing"
 							 gamesplayed: 18,
 							 goals: 15,
 							 assists: 10,
@@ -36,6 +37,7 @@ describe Player do
 
 	it { should respond_to(:firstname) }
 	it { should respond_to(:lastname) }
+	it { should respond_to(:position) }
 	it { should respond_to(:number) }
 	it { should respond_to(:gamesplayed) }
 	it { should respond_to(:goals) }

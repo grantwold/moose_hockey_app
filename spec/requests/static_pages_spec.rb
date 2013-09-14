@@ -27,10 +27,20 @@ describe "Static Pages" do
 		it_should_behave_like "all static pages"
 	end
 
+	describe "Roster page" do
+		before { visit roster_path }
+		let(:heading) { 'Roster' }
+		let(:page_title) { 'Roster' }
+
+		it_should_behave_like "all static pages"
+	end
+
 	it "should have the right links on the layout" do
 		visit root_path
 		click_link "Calendar"
 		page.should have_selector 'title', text: full_title('Calendar')
+		click_link "Roster"
+		page.should have_selector 'title', text: full_title('Roster')
 		click_link "Moose Hockey"
 		page.should have_selector 'title', text: full_title( '' )
 	end
