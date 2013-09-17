@@ -14,11 +14,12 @@
 #  penalties        :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  position         :string(255)
 #
 
 class Player < ActiveRecord::Base
   attr_accessible :assists, :firstname, :gamesplayed, :goals, :lastname, 
-  				  :number, :penalties, :powerplaygoals, :shorthandedgoals
+  				  :number, :penalties, :position, :powerplaygoals, :shorthandedgoals
 
 	validates(:firstname, presence: true)
 	validates(:lastname, presence: true)  	

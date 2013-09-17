@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def roster
+    @players = Player.all
   end
 
   def player_pages

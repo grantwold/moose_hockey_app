@@ -14,6 +14,7 @@
 #  penalties        :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  position         :string(255)
 #
 
 require 'spec_helper'
@@ -24,7 +25,7 @@ describe Player do
 		@player = Player.new(firstname: "Example", 
 							 lastname: "Player", 
 							 number: 00,
-							 position: "Right Wing"
+							 position: "Right Wing",
 							 gamesplayed: 18,
 							 goals: 15,
 							 assists: 10,

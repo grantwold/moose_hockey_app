@@ -5,15 +5,16 @@
 		<form class="form-horizontal">
 			<%= simple_form_for(@player) do |f| %>
 				<%= f.error_notification %>
-				<%= f.input :firstname %>
-				<%= f.input :lastname %>
+				<%= f.input :firstname, label: "First Name" %>
+				<%= f.input :lastname, label: "Last Name" %>
 				<%= f.input :number %>
-				<%= f.input :gamesplayed %>
+				<%= f.input :position %>
+				<%= f.input :gamesplayed, label: "Games Played" %>
 				<%= f.input :goals %>
 				<%= f.input :assists %>
-				<%= f.input :shorthandedgoals %>
-				<%= f.input :powerplaygoals %>
-				<%= f.input :penalties %>
+				<%= f.input :shorthandedgoals, label: "SHG" %>
+				<%= f.input :powerplaygoals, label: "PPG" %>
+				<%= f.input :penalties, label: "PIM" %>
 				<%= f.error :base %>
 				<%= f.button :submit %>
 			<% end %>

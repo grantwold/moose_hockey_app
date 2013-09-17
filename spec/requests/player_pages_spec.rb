@@ -15,7 +15,7 @@ describe "Player pages" do
 		
 		before { visit newplayer_path }
 
-		let(:submit) { "Create New Player" }
+		let(:submit) { "Create Player" }
 
 		describe "with invalid information" do
 			it "should not create a player" do
@@ -26,21 +26,22 @@ describe "Player pages" do
 				before { click_button submit }
 
 				it { should have_selector('title', text: "New Player") }
-				it { should have_content('error') }
+				it { should have_selector('div.alert.alert-error') }
 			end
 		end
 
 		describe "with valid information" do
 			before do
-				fill_in "First Name", with: "Example"
-				fill_in "Last Name",  with: "Player"
-				fill_in "Number",     with: 00
-				fill_in "GP",    	  with: 18
-				fill_in "Goals",	  with: 15
-				fill_in "Assists",	  with: 10
-				fill_in "SHG", 		  with: 1
-				fill_in "PPG",		  with: 3
-				fill_in "PIM", 		  with: 12
+				fill_in "First Name", 	with: "Example"
+				fill_in "Last Name",  	with: "Player"
+				fill_in "Number",     	with: 00
+				fill_in "Position",		with: "Right Wing"
+				fill_in "Games Played", with: 18
+				fill_in "Goals",	  	with: 15
+				fill_in "Assists",	  	with: 10
+				fill_in "SHG", 		  	with: 1
+				fill_in "PPG",		  	with: 3
+				fill_in "PIM", 		  	with: 12
 			end
 
 			it "should create a player" do

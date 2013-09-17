@@ -1,3 +1,27 @@
 <% provide(:title, "Roster") %>
 <h1>Roster</h1>
-<p></p>
+<div class="row-fluid">
+	<div class="span3">
+		<!-- Space holder -->
+	</div>
+	<div class="span9 offset3">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Position</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @players.each do |player| %>
+					<tr>
+						<td><%= player.number %></td>
+						<td><%= "#{player.firstname} #{player.lastname}" %></td>
+						<td><%= player.position %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

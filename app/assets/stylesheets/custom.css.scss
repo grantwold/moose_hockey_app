@@ -22,7 +22,7 @@ body {
 	.page-body {
 		padding-top: 180px;
 		padding-bottom: 10px;
-		background: #FFF8E6;
+		background: #FFF8A6;
 	}
 	.rounded-corners {
 		-moz-border-radius: 10px;
@@ -45,27 +45,18 @@ textarea {
 	h1 {
 		margin-bottom: 10px;
 		margin-top: 10px;
+		text-align: center;
 	}
+}
+
+.page {
+	padding-left: 150px;
 }
 
 /* typography */
 
-@font-face {
-    font: {
-       family: 'orbitron';
-       weight: 'normal';
-       style: 'normal';
-    }
-    src: asset-url('orbitron-medium-webfont.eot', font);
-    src: asset-url('orbitron-medium-webfont.eot', font) format('embedded-opentype'),
-         asset-url('orbitron-medium-webfont.woff', font) format('woff'),
-         asset-url('orbitron-medium-webfont.ttf', font) format('truetype'),
-         asset-url('orbitron-medium-webfont.svg', font) format('svg')
-}
-
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
-	font-family: orbitron;
 }
 
 h1 {
@@ -129,6 +120,12 @@ p {
 
 /* calendar */
 
+/* table */
+
+.table {
+	
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -176,7 +173,6 @@ aside {
 			/* adjusts the profile picture and stats */
 			border: 0;
 			padding-top: 130px;
-			padding-left: 60px;
 			padding-right: 0px;
 		}
 		span {
