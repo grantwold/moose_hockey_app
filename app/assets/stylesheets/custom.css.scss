@@ -116,6 +116,28 @@ p {
 	float: left;
 }
 
+/* carousel */
+
+ol {
+	list-style: none;
+}
+
+.carousel {
+	.carousel-control {
+		visibility: hidden;
+	}
+}
+
+.carousel:hover {
+	.carousel-control {
+		visibility: visible;
+	}
+}
+
+.carousel-container {
+	padding-left: 90px;
+}
+
 /* body */
 
 /* calendar */
@@ -160,6 +182,7 @@ footer {
 		li {
 			float: left;
 			margin-top: 10px;
+			padding-left: 10px;
 		}
 	}
 }
@@ -189,6 +212,20 @@ aside {
 	}
 }
 
+/* player edit page */
+
+.player-attributes {
+	list-style: none;
+	border-box: 1px solid;
+	@include box_sizing
+}
+
+textarea {
+	webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 /* debug dump */
 
 .debug_dump {
@@ -198,4 +235,3 @@ aside {
 	margin-top: 45px;
 	@include box_sizing;
 }
-

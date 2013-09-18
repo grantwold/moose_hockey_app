@@ -65,4 +65,12 @@ describe "Player pages" do
 		it { should have_selector('h1',    text: "#{player.firstname} #{player.lastname}") }
 		it { should have_selector('title', text: "#{player.firstname} #{player.lastname}") }
 	end
+
+	describe "player edit page" do
+		let(:player) { FactoryGirl.create(:player) }
+		before { visit edit_player_path(player) }
+
+		it { should have_selector('h1',    text: "Update #{player.firstname} #{player.lastname} stats") }
+		it { should have_selector('title', text: "edit #{player.firstname} #{player.lastname}") }
+	end
 end

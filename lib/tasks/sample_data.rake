@@ -32,4 +32,3 @@ def make_players
 					   penalties: penalties)
 	end
 end
-
