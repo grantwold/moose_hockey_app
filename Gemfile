@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'mysql2', '0.3.11'
+gem 'pg'
 gem 'bootstrap-sass', '2.0.0'
 gem 'simple_form'
 gem 'table_for_collection'

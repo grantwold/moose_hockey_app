@@ -18,8 +18,17 @@ class PlayersController < ApplicationController
 		end
 	end
 
-
 	def edit
 		@player = Player.find(params[:id])
+	end
+
+	def update
+		@player = Player.find(params[:id])
+		if @player.update_attributes(params[:player])
+			flash[:success] = "Player Updated"
+			redirect_to player_path(@player)
+		else
+			render 'edit'
+		end
 	end
 end

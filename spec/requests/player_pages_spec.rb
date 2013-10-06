@@ -66,11 +66,53 @@ describe "Player pages" do
 		it { should have_selector('title', text: "#{player.firstname} #{player.lastname}") }
 	end
 
-	describe "player edit page" do
+	describe "edit player" do
 		let(:player) { FactoryGirl.create(:player) }
 		before { visit edit_player_path(player) }
 
-		it { should have_selector('h1',    text: "Update #{player.firstname} #{player.lastname} stats") }
-		it { should have_selector('title', text: "edit #{player.firstname} #{player.lastname}") }
+		describe "edit player page" do
+			it { should have_selector('h1',    text: "Update #{player.firstname} #{player.lastname} stats") }
+			it { should have_selector('title', text: "edit #{player.firstname} #{player.lastname}") }
+		end
+
+		describe "with invalid information" do
+			let(:submit) { "Update Player" }
+			before do
+				fill_in "First Name", 	with: " "
+				fill_in "Last Name",  	with: " "
+				fill_in "Number",     	with: " "
+				fill_in "Position",		with: " "
+				fill_in "Games Played", with: " "
+				fill_in "Goals",	  	with: " "
+				fill_in "Assists",	  	with: " "
+				fill_in "SHG", 		  	with: " "
+				fill_in "PPG",		  	with: " "
+				fill_in "PIM", 		  	with: " "
+				click_button submit
+			end
+
+			it { should have_selector('div.alert.alert-error') }
+		end
+
+		describe "with valid information" do
+			let(:new_firstname) { "New" }
+			let(:new_lastname) { "Name" }
+			let(:new_position) { "New Position" }
+			let(:new_number) { 100 }
+			before do
+				fill_in "First Name", 	with: new_firstname
+				fill_in "Last Name",  	with: new_lastname
+				fill_in "Number",     	with: new_number
+				fill_in "Position",		with: new_position
+				click_button "Update Player"
+			end
+
+			it { should have_selector('title', text: "#{new_firstname} #{new_lastname}") }
+			it { should have_selector('div.alert.alert-success') }
+			specify { player.reload.firstname.should == new_firstname}
+			specify { player.reload.lastname.should == new_lastname}
+			specify { player.reload.number.should == new_number}
+			specify { player.reload.position.should == new_position}
+		end
 	end
 end

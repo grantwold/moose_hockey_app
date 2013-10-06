@@ -58,4 +58,44 @@ describe Player do
 		before { @player.lastname = " " }
 		it { should_not be_valid }
 	end
+
+	describe "when position is not present" do
+		before { @player.position = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when number is not present" do
+		before { @player.number = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when gamesplayed is not present" do
+		before { @player.gamesplayed = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when goals are not present" do
+		before { @player.goals = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when assists are not present" do
+		before { @player.assists = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when shorthandedgoals are not present" do
+		before { @player.shorthandedgoals = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when powerplaygoals are not present" do
+		before { @player.powerplaygoals = " " }
+		it { should_not be_valid }
+	end
+
+	describe "when penalties are not present" do
+		before { @player.penalties = " " }
+		it { should_not be_valid }
+	end
 end

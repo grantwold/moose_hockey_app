@@ -5,33 +5,33 @@
 		<form class="form-horizontal">
 			<%= simple_form_for(@player) do |f| %>
 				<%= f.error_notification %>
-				<%= f.input :firstname, label: "First Name" %>
-				<%= f.input :lastname, label: "Last Name" %>
-				<%= f.input :number %>
+				<%= f.input :firstname, 
+					label: "First Name" %>
+
+				<%= f.input :lastname, label: "Last Name", placeholder: "#{@player.lastname}" %>
+
+				<%= f.input :number, placeholder: "#{@player.number}" %>
+
 				<%= f.input :position %>
-				<%= f.input :gamesplayed, label: "Games Played" %>
-				<%= f.input :goals %>
-				<%= f.input :assists %>
-				<%= f.input :shorthandedgoals, label: "SHG" %>
-				<%= f.input :powerplaygoals, label: "PPG" %>
-				<%= f.input :penalties, label: "PIM" %>
+
+				<%= f.input :gamesplayed, 
+					label: "Games Played", placeholder: "#{@player.gamesplayed}" %>
+
+				<%= f.input :goals, placeholder: "#{@player.goals}" %>
+
+				<%= f.input :assists, placeholder: "#{@player.assists}" %>
+
+				<%= f.input :shorthandedgoals, 
+					label: "SHG", placeholder: "#{@player.shorthandedgoals}" %>
+
+				<%= f.input :powerplaygoals, 
+					label: "PPG", placeholder: "#{@player.powerplaygoals}" %>
+
+				<%= f.input :penalties, label: "PIM", placeholder: "#{@player.penalties}" %>
+
 				<%= f.error :base %>
-				<%= f.button :submit %>
+				<%= f.submit "Update Player", class: "btn btn-large btn-primary" %>
 			<% end %>
 		</form>
-	</div>
-	<div class="span2">
-		<ul class="player-attributes textarea">
-			<li><%= @player.firstname %></li>
-			<li><%= @player.lastname %></li>
-			<li><%= @player.number %></li>
-			<li><%= @player.position %></li>
-			<li><%= @player.gamesplayed %></li>
-			<li><%= @player.goals %></li>
-			<li><%= @player.assists %></li>
-			<li><%= @player.shorthandedgoals %></li>
-			<li><%= @player.powerplaygoals %></li>
-			<li><%= @player.penalties %></li>
-		</ul>
 	</div>
 </div>

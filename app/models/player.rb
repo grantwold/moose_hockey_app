@@ -22,5 +22,13 @@ class Player < ActiveRecord::Base
   				  :number, :penalties, :position, :powerplaygoals, :shorthandedgoals
 
 	validates(:firstname, presence: true)
-	validates(:lastname, presence: true)  	
+	validates(:lastname, presence: true)
+	validates(:position, presence: true)
+	validates(:number, presence: true)
+	validates(:gamesplayed, presence: true)
+	validates(:goals, presence: true)
+	validates(:assists, presence: true)
+	validates(:shorthandedgoals, presence: true)
+	validates(:powerplaygoals, presence: true)
+	validates(:penalties, presence: true)
 end
