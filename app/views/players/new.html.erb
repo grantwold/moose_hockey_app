@@ -1,21 +1,21 @@
 <% provide(:title, 'New Player') %>
 <h1>New Player Creation</h1>
 <div class="row">
-		<form class="form-horizontal span6">
-			<%= simple_form_for(@player) do |f| %>
-				<%= f.error_notification %>
-				<%= f.input :firstname, label: "First Name" %>
-				<%= f.input :lastname, label: "Last Name" %>
-				<%= f.input :number %>
-				<%= f.input :position %>
-				<%= f.input :gamesplayed, label: "Games Played" %>
-				<%= f.input :goals %>
-				<%= f.input :assists %>
-				<%= f.input :shorthandedgoals, label: "SHG" %>
-				<%= f.input :powerplaygoals, label: "PPG" %>
-				<%= f.input :penalties, label: "PIM" %>
-				<%= f.error :base %>
-				<%= f.button :submit %>
-			<% end %>
-		</form>
+	<form class="form-horizontal span6">
+		<%= simple_form_for(@player) do |f| %>
+			<%= f.error_notification %>
+			<%= f.input :firstname, label: "First Name" %>
+			<%= f.input :lastname, label: "Last Name" %>
+			<%= f.input :number %>
+			<%= f.input :position %>
+			<%= f.input :gamesplayed, label: "Games Played" %>
+			<%= f.input :goals %>
+			<%= f.input :assists %>
+			<%= f.input :shorthandedgoals, label: "SHG" %>
+			<%= f.input :powerplaygoals, label: "PPG" %>
+			<%= f.input :penalties, label: "PIM" %>
+			<%= f.error :base %>
+			<%= f.button :submit %>
+		<% end %>
+	</form>
 </div>
