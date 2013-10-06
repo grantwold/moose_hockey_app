@@ -1,7 +1,7 @@
 <% provide(:title, 'New Player') %>
 <h1>New Player Creation</h1>
-<div class="row">
-	<form class="form-horizontal span6">
+<div class="row-fluid form-horizontal">
+		<div class="span 6">
 		<%= simple_form_for(@player) do |f| %>
 			<%= f.error_notification %>
 			<%= f.input :firstname, label: "First Name" %>
@@ -15,7 +15,6 @@
 			<%= f.input :powerplaygoals, label: "PPG" %>
 			<%= f.input :penalties, label: "PIM" %>
 			<%= f.error :base %>
-			<%= f.button :submit %>
+			<%= f.submit "Create Player", class: "btn btn-large btn-primary" %>
 		<% end %>
-	</form>
 </div>
