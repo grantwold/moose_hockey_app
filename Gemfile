@@ -7,8 +7,7 @@ gem 'simple_form'
 gem 'table_for_collection'
 gem 'faker'
 
-group :development, :test do
-	gem 'rspec-rails', '2.9.0'
+group :development do
 	gem 'annotate', '2.5.0'
 end
 
@@ -19,18 +18,17 @@ end
 group :assets do
   gem 'sass-rails',   '3.2.4'
   gem 'coffee-rails', '3.2.2'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '1.2.3'
 end
 
 gem 'jquery-rails'
 
+group :test, :development do
+	gem 'rspec-rails', '2.9.0'
+	gem 'spork', '0.9.0'
+	
 group :test do
 	gem 'capybara', '1.1.2'
-	gem 'spork', '0.9.0'
 	gem 'factory_girl_rails', '1.4.0'
 end
 
