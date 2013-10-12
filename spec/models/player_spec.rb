@@ -46,6 +46,7 @@ describe Player do
 	it { should respond_to(:shorthandedgoals) }
 	it { should respond_to(:powerplaygoals) }
 	it { should respond_to(:penalties) }
+	it { should have_many(:teams).through(:memberships) }
 
 	it { should be_valid }
 

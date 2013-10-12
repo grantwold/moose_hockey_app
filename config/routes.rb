@@ -1,4 +1,6 @@
 MooseHockeyApp::Application.routes.draw do
+  get "teams/new"
+
   resources :players
 
   root to: 'static_pages#home'

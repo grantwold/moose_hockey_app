@@ -21,6 +21,9 @@ class Player < ActiveRecord::Base
   attr_accessible :assists, :firstname, :gamesplayed, :goals, :lastname, 
   				  :number, :penalties, :position, :powerplaygoals, :shorthandedgoals
 
+  	has_many :memberships
+  	has_many :teams, through: :memberships
+
 	validates(:firstname, presence: true)
 	validates(:lastname, presence: true)
 	validates(:position, presence: true)

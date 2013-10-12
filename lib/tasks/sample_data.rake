@@ -3,6 +3,7 @@ namespace :db do
 	task populate: :environment do
 		Rake::Task['db:reset'].invoke
 		make_players
+		make_teams
 	end
 end
 
@@ -30,5 +31,20 @@ def make_players
 					   shorthandedgoals: shorthandedgoals,
 					   powerplaygoals: powerplaygoals,
 					   penalties: penalties)
+	end
+end
+
+def make_teams
+	Faker::Config.locale = :en
+	5.times do |n|
+		name 			= "#{Faker::Name.name} tournament"
+		year_options 	= ["2011", "2012", "2013", "2014"]
+		month_options 	= rand(1..12)
+		day_options 	= rand(1..28)
+		season_end 		= "#{year_options.sample}-#{month_options}-#{day_options}"
+		season_start 	= season_end + rand(1..8).months.ago
+		Team.create!(name: name,
+					 season_start: season_start,
+					 season_end: season_end)
 	end
 end

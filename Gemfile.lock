@@ -59,6 +59,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    ffi (1.9.0)
     ffi (1.9.0-x86-mingw32)
     hike (1.2.3)
     i18n (0.6.5)
@@ -74,6 +75,8 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.1)
     multi_json (1.8.1)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     nokogiri (1.6.0-x86-mingw32)
       mini_portile (~> 0.5.0)
     pg (0.17.0-x86-mingw32)
@@ -93,6 +96,11 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.1)
+    rails_stdout_logging (0.0.2)
     railties (3.2.11)
       actionpack (= 3.2.11)
       activesupport (= 3.2.11)
@@ -127,9 +135,12 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
+    shoulda-matchers (2.4.0)
+      activesupport (>= 3.0.0)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    spork (0.9.0)
     spork (0.9.0-x86-mingw32)
       win32-process
     sprockets (2.2.2)
@@ -167,8 +178,10 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.11)
+  rails_12factor
   rspec-rails (= 2.9.0)
   sass-rails (= 3.2.4)
+  shoulda-matchers
   simple_form
   spork (= 0.9.0)
   table_for_collection

@@ -26,10 +26,16 @@ gem 'jquery-rails'
 group :test, :development do
 	gem 'rspec-rails', '2.9.0'
 	gem 'spork', '0.9.0'
-	
+end
+
 group :test do
 	gem 'capybara', '1.1.2'
 	gem 'factory_girl_rails', '1.4.0'
+	gem 'shoulda-matchers'
+end
+
+group :production do
+	gem 'rails_12factor'
 end
 
 # To use ActiveModel has_secure_password

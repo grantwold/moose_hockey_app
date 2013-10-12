@@ -11,4 +11,9 @@ FactoryGirl.define do
 		powerplaygoals   "3"
 		penalties        "12"
 	end
+
+	factory :team do
+		season_start "2012-10-27"
+		season_end	 "2013-4-15"
+	end
 end
