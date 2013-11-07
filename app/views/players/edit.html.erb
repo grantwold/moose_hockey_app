@@ -2,7 +2,7 @@
 <h1>Update <%= "#{@player.firstname} #{@player.lastname}" %> stats</h1>
 <div class="row-fluid form-horizontal">
 	<div class="span6">
-		<%= simple_form_for(@player) do |f| %>
+		<%= simple_form_for @player do |f| %>
 			<%= f.error_notification %>
 			<%= f.input :firstname, label: "First Name" %>
 
@@ -26,6 +26,8 @@
 				label: "PPG", placeholder: "#{@player.powerplaygoals}" %>
 
 			<%= f.input :penalties, label: "PIM", placeholder: "#{@player.penalties}" %>
+
+			<%= f.association :teams, label: "Select Teams", as: :check_boxes %>
 
 			<%= f.error :base %>
 			<%= f.submit "Update Player", class: "btn btn-large btn-primary" %>

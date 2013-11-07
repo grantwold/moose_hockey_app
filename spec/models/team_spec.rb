@@ -26,7 +26,7 @@ describe Team do
   it { should respond_to(:name) }
   it { should respond_to(:season_start) }
   it { should respond_to(:season_end) }
-  it { should have_many(:players).through(:memberships) }
+  it { should have_and_belong_to_many(:players) }
 
 
   it { should be_valid }

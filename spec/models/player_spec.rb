@@ -46,7 +46,8 @@ describe Player do
 	it { should respond_to(:shorthandedgoals) }
 	it { should respond_to(:powerplaygoals) }
 	it { should respond_to(:penalties) }
-	it { should have_many(:teams).through(:memberships) }
+	it { should have_and_belong_to_many(:teams) }
+	it { should accept_nested_attributes_for(:teams) }
 
 	it { should be_valid }
 

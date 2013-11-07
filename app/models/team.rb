@@ -12,8 +12,8 @@
 
 class Team < ActiveRecord::Base
   attr_accessible :season_end, :season_start, :name
-  has_many :memberships
-  has_many :players, through: :memberships
+
+  has_and_belongs_to_many :players
 
   validates(:season_start, presence: true)
   validates(:season_end, presence: true)

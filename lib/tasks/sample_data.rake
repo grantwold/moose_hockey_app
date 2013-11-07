@@ -41,8 +41,9 @@ def make_teams
 		year_options 	= ["2011", "2012", "2013", "2014"]
 		month_options 	= rand(1..12)
 		day_options 	= rand(1..28)
-		season_end 		= "#{year_options.sample}-#{month_options}-#{day_options}"
-		season_start 	= season_end + rand(1..8).months.ago
+		season_end 		= "#{year_options.sample}-#{month_options}-#{day_options}".to_date
+		month_ago		= rand(1..8)
+		season_start 	= season_end - month_ago.month
 		Team.create!(name: name,
 					 season_start: season_start,
 					 season_end: season_end)
