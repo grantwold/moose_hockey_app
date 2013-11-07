@@ -12,5 +12,5 @@
 require 'spec_helper'
 
 describe Membership do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pending "The relationship test might be adequetly tested in the team and player spec"
 end
