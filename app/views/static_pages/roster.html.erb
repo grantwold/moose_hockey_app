@@ -14,7 +14,7 @@
 				<% @players.each do |player| %>
 					<tr> 
 						<td><%= player.number %></td>
-						<td><%= link_to "#{player.firstname} #{player.lastname}", player %></td>
+						<td><%= link_to "#{player.name}", player %></td>
 						<td><%= player.position %></td>
 					</tr>
 				<% end %>

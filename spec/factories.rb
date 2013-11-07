@@ -1,7 +1,6 @@
 FactoryGirl.define do 
 	factory :player do
-		firstname    	 "Example"
-		lastname     	 "Player"
+		name    	 	"Example Player"
 		position		 "Right Wing"
 		number       	 "00"
 		gamesplayed  	 "18"
@@ -15,5 +14,6 @@ FactoryGirl.define do
 	factory :team do
 		season_start "2012-10-27"
 		season_end	 "2013-4-15"
+		name		 "AHA 2012 Season"
 	end
 end

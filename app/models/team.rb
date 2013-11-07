@@ -11,9 +11,10 @@
 #
 
 class Team < ActiveRecord::Base
-  attr_accessible :season_end, :season_start, :name
+  attr_accessible :season_end, :season_start, :name, :player_ids
 
   has_and_belongs_to_many :players
+  accepts_nested_attributes_for :players
 
   validates(:season_start, presence: true)
   validates(:season_end, presence: true)

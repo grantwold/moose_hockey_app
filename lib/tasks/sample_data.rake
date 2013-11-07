@@ -10,8 +10,7 @@ end
 def make_players
 	Faker::Config.locale = :en
 	20.times do |n|
-		firstname				= Faker::Name.first_name
-		lastname				= Faker::Name.last_name
+		name					= Faker::Name.name
 		number					= rand(100)
 		position_options		= ["Defense", "Right Wing", "Left Wing", "Center", "Goalie"]
 		position 				= position_options[rand(position_options.length)]
@@ -21,16 +20,15 @@ def make_players
 		shorthandedgoals		= rand(6)
 		powerplaygoals			= rand(15)
 		penalties				= rand(41)
-		Player.create!(firstname: firstname,
-					   lastname: lastname,
-					   number: number,
-					   position: position,
-					   gamesplayed: gamesplayed,
-					   goals: goals,
-					   assists: assists,
+		Player.create!(name: 			 name,
+					   number: 			 number,
+					   position: 		 position,
+					   gamesplayed: 	 gamesplayed,
+					   goals: 			 goals,
+					   assists: 		 assists,
 					   shorthandedgoals: shorthandedgoals,
-					   powerplaygoals: powerplaygoals,
-					   penalties: penalties)
+					   powerplaygoals: 	 powerplaygoals,
+					   penalties: 		 penalties)
 	end
 end
 

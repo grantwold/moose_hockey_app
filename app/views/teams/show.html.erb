@@ -1,3 +1,2 @@
-<%= "#{@team.name}" %></br>
-<%= "#{@team.season_start}" %></br>
-<%= "#{@team.season_end}" %>
+<% provide(:title, "#{@team.name}") %>
+<h1><%= "#{@team.name}" %></h1>

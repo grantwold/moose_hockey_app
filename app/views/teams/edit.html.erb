@@ -1,0 +1,19 @@
+<% provide(:title, "Edit #{@team.name}") %>
+<h1>Update <%= "#{@team.name}" %></h1>
+<div class="row-fluid form-horizontal">
+	<div class="span6">
+		<%= simple_form_for @team do |f| %>
+			<%= f.error_notification %>
+			<%= f.input :name, label: "Name", placeholder: "#{@team.name}" %>
+
+			<%= f.input :season_start, label: "Start of season", placeholder: "#{@team.season_start}" %>
+
+			<%= f.input :season_end, label: "End of season", placeholder: "#{@team.season_end}" %>
+
+			<%= f.association :players, label: "Select players", as: :check_boxes %>
+
+			<%= f.error :base %>
+			<%= f.submit "Update Team", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

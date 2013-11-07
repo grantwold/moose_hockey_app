@@ -1,12 +1,10 @@
-<% provide(:title, "edit #{@player.firstname} #{@player.lastname}") %>
-<h1>Update <%= "#{@player.firstname} #{@player.lastname}" %> stats</h1>
+<% provide(:title, "edit #{@player.name}") %>
+<h1>Update <%= "#{@player.name}" %> stats</h1>
 <div class="row-fluid form-horizontal">
 	<div class="span6">
 		<%= simple_form_for @player do |f| %>
 			<%= f.error_notification %>
-			<%= f.input :firstname, label: "First Name" %>
-
-			<%= f.input :lastname, label: "Last Name", placeholder: "#{@player.lastname}" %>
+			<%= f.input :name, label: "Name" %>
 
 			<%= f.input :number, placeholder: "#{@player.number}" %>
 

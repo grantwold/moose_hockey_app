@@ -18,14 +18,13 @@
 #
 
 class Player < ActiveRecord::Base
-	attr_accessible :assists, :firstname, :gamesplayed, :goals, :lastname, :number, :penalties, 
+	attr_accessible :assists, :name, :gamesplayed, :goals, :number, :penalties, 
 		:position, :powerplaygoals, :shorthandedgoals, :team_ids
 
 	has_and_belongs_to_many :teams
 	accepts_nested_attributes_for :teams
 
-	validates(:firstname, presence: true)
-	validates(:lastname, presence: true)
+	validates(:name, presence: true)
 	validates(:position, presence: true)
 	validates(:number, presence: true)
 	validates(:gamesplayed, presence: true)
@@ -34,5 +33,4 @@ class Player < ActiveRecord::Base
 	validates(:shorthandedgoals, presence: true)
 	validates(:powerplaygoals, presence: true)
 	validates(:penalties, presence: true)
-
 end

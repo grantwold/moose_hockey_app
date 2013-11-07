@@ -5,7 +5,7 @@ describe "Player pages" do
 	subject { page }
 
 	describe "new player page" do
-		before { visit newplayer_path }
+		before { visit new_player_path }
 
 		it { should have_selector('h1', text: 'New Player Creation') }
 		it { should have_selector('title', text: full_title('New Player')) }
@@ -13,7 +13,7 @@ describe "Player pages" do
 
 	describe "create new player" do
 		
-		before { visit newplayer_path }
+		before { visit new_player_path }
 
 		let(:submit) { "Create Player" }
 
@@ -32,8 +32,7 @@ describe "Player pages" do
 
 		describe "with valid information" do
 			before do
-				fill_in "First Name", 	with: "Example"
-				fill_in "Last Name",  	with: "Player"
+				fill_in "Name", 		with: "Example Player"
 				fill_in "Number",     	with: 00
 				fill_in "Position",		with: "Right Wing"
 				fill_in "Games Played", with: 18
@@ -50,9 +49,9 @@ describe "Player pages" do
 
 			describe "after saving the player" do
 				before { click_button submit }
-				let(:player) { Player.find_by_firstname('Example') }
+				let(:player) { Player.find_by_name('Example Player') }
 
-				it { should have_selector('title', text: "#{player.firstname} #{player.lastname}") }
+				it { should have_selector('title', text: "#{player.name}") }
 				it { should have_selector('div.alert.alert-success', text: 'New player created') }
 			end
 		end
@@ -62,8 +61,8 @@ describe "Player pages" do
 		let(:player) { FactoryGirl.create(:player) }
 		before { visit player_path(player) }
 
-		it { should have_selector('h1',    text: "#{player.firstname} #{player.lastname}") }
-		it { should have_selector('title', text: "#{player.firstname} #{player.lastname}") }
+		it { should have_selector('h1',    text: "#{player.name}") }
+		it { should have_selector('title', text: "#{player.name}") }
 	end
 
 	describe "edit player" do
@@ -71,15 +70,14 @@ describe "Player pages" do
 		before { visit edit_player_path(player) }
 
 		describe "edit player page" do
-			it { should have_selector('h1',    text: "Update #{player.firstname} #{player.lastname} stats") }
-			it { should have_selector('title', text: "edit #{player.firstname} #{player.lastname}") }
+			it { should have_selector('h1',    text: "Update #{player.name} stats") }
+			it { should have_selector('title', text: "edit #{player.name}") }
 		end
 
 		describe "with invalid information" do
 			let(:submit) { "Update Player" }
 			before do
-				fill_in "First Name", 	with: " "
-				fill_in "Last Name",  	with: " "
+				fill_in "Name",			with: " "
 				fill_in "Number",     	with: " "
 				fill_in "Position",		with: " "
 				fill_in "Games Played", with: " "
@@ -95,24 +93,21 @@ describe "Player pages" do
 		end
 
 		describe "with valid information" do
-			let(:new_firstname) { "New" }
-			let(:new_lastname) { "Name" }
+			let(:new_name) { "New Name" }
 			let(:new_position) { "New Position" }
 			let(:new_number) { 100 }
 			before do
-				fill_in "First Name", 	with: new_firstname
-				fill_in "Last Name",  	with: new_lastname
+				fill_in "Name", 	with: new_name
 				fill_in "Number",     	with: new_number
 				fill_in "Position",		with: new_position
 				click_button "Update Player"
 			end
 
-			it { should have_selector('title', text: "#{new_firstname} #{new_lastname}") }
+			it { should have_selector('title', text: "#{new_name}") }
 			it { should have_selector('div.alert.alert-success') }
-			specify { player.reload.firstname.should == new_firstname}
-			specify { player.reload.lastname.should == new_lastname}
-			specify { player.reload.number.should == new_number}
-			specify { player.reload.position.should == new_position}
+			specify { player.reload.name.should == new_name }
+			specify { player.reload.number.should == new_number }
+			specify { player.reload.position.should == new_position }
 		end
 	end
 end

@@ -22,8 +22,7 @@ require 'spec_helper'
 describe Player do
 
 	before do
-		@player = Player.new(firstname: "Example", 
-							 lastname: "Player", 
+		@player = Player.new(name: "Example Player", 
 							 number: 00,
 							 position: "Right Wing",
 							 gamesplayed: 18,
@@ -36,8 +35,7 @@ describe Player do
 
 	subject { @player }
 
-	it { should respond_to(:firstname) }
-	it { should respond_to(:lastname) }
+	it { should respond_to(:name) }
 	it { should respond_to(:position) }
 	it { should respond_to(:number) }
 	it { should respond_to(:gamesplayed) }
@@ -51,13 +49,8 @@ describe Player do
 
 	it { should be_valid }
 
-	describe "when firstname is not present" do
-		before { @player.firstname = " " }
-		it { should_not be_valid }
-	end
-
-	describe "when lastname is not present" do
-		before { @player.lastname = " " }
+	describe "when name is not present" do
+		before { @player.name = " " }
 		it { should_not be_valid }
 	end
 

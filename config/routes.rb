@@ -5,7 +5,8 @@ MooseHockeyApp::Application.routes.draw do
 
   root to: 'static_pages#home'
 
-  match '/newplayer', to: 'players#new'
+  match '/new_player', to: 'players#new'
+  match '/new_team', to: 'teams#new'
 
   match 'calendar', to: 'static_pages#calendar'
   match 'roster', to: 'static_pages#roster'
