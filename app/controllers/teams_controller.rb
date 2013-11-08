@@ -1,32 +1,32 @@
-class TeamsController < ApplicationController
+class seasonsController < ApplicationController
 	def new
-		@team = Team.new
+		@season = season.new
 	end
 
 	def create
-		@team = Team.new(params[:team])
-		if @team.save
-			flash[:success] = "New team created"
-			redirect_to @team
+		@season = season.new(params[:season])
+		if @season.save
+			flash[:success] = "New season created"
+			redirect_to @season
 		else
 			render 'new'
 		end
 	end
 
 	def show
-		@team = Team.find(params[:id])
-		@players = @team.players.all
+		@season = season.find(params[:id])
+		@players = @season.players.all
 	end
 
 	def edit
-		@team = Team.find(params[:id])
+		@season = season.find(params[:id])
 	end
 
 	def update
-		@team = Team.find(params[:id])
-		if @team.update_attributes(params[:team])
-			flash[:success] = "Team Updated"
-			redirect_to team_path(@team)
+		@season = season.find(params[:id])
+		if @season.update_attributes(params[:season])
+			flash[:success] = "season Updated"
+			redirect_to season_path(@season)
 		else
 			render 'edit'
 		end

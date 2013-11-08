@@ -1,8 +1,8 @@
-<% provide(:title, "New Team") %>
-<h1>New Team Creation</h1>
+<% provide(:title, "New Season") %>
+<h1>New Season Creation</h1>
 <div class="row-fluid form-horizontal">
 	<div class="span 6">
-		<%= simple_form_for @team do |f| %>
+		<%= simple_form_for @season do |f| %>
 			<%= f.error_notification %>
 			<%= f.input :name, label: "Name" %>
 
@@ -13,7 +13,7 @@
 			<%= f.association :players, label: "Select players", as: :check_boxes %>
 
 			<%= f.error :base %>
-			<%= f.submit "Create Team", class: "btn btn-large btn-primary" %>
+			<%= f.submit "Create Season", class: "btn btn-large btn-primary" %>
 		<% end %>
 	</div>
 </div>

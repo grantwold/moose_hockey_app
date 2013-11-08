@@ -10,7 +10,7 @@
 #  name         :string(255)
 #
 
-class Team < ActiveRecord::Base
+class Season < ActiveRecord::Base
   attr_accessible :season_end, :season_start, :name, :player_ids
 
   has_and_belongs_to_many :players

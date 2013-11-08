@@ -1,12 +1,12 @@
 MooseHockeyApp::Application.routes.draw do
 
   resources :players
-  resources :teams
+  resources :seasons
 
   root to: 'static_pages#home'
 
   match '/new_player', to: 'players#new'
-  match '/new_team', to: 'teams#new'
+  match '/new_season', to: 'seasons#new'
 
   match 'calendar', to: 'static_pages#calendar'
   match 'roster', to: 'static_pages#roster'

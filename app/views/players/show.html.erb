@@ -8,13 +8,13 @@
 					<table class="table table-hover table-condensed">
 						<thead>
 							<tr>
-								<th>Past Teams</th>
+								<th>Past seasons</th>
 							</tr>
 						</thead>
 						<tbody>
-							<% @teams.each do |team| %>
+							<% @seasons.each do |season| %>
 								<tr> 
-									<td><%= link_to "#{team.name}", team %></td>
+									<td><%= link_to "#{season.name}", season %></td>
 								</tr>
 							<% end %>
 						</tbody>

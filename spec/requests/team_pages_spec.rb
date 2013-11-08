@@ -1,34 +1,34 @@
 require 'spec_helper'
 
-describe "Team pages" do
+describe "season pages" do
 
 	subject { page }
 
-	describe "new team page" do
-		before { visit new_team_path }
+	describe "new season page" do
+		before { visit new_season_path }
 
-		# Unfortunately I have bad naming.  The model is team, but it is really 
+		# Unfortunately I have bad naming.  The model is season, but it is really 
 		#creating a season.  However, the season might just be a tournament.  
-		# Just going to go with team.
-		it { should have_selector('h1', text: 'New Team Creation') }
-		it { should have_selector('title', text: full_title('New Team')) }
+		# Just going to go with season.
+		it { should have_selector('h1', text: 'New season Creation') }
+		it { should have_selector('title', text: full_title('New season')) }
 	end
 
-	describe "create new team" do
+	describe "create new season" do
 		
-		before { visit new_team_path }
+		before { visit new_season_path }
 
-		let(:submit) { "Create Team" }
+		let(:submit) { "Create season" }
 
 		describe "with invalid information" do
-			it "should not create a team" do
-				expect { click_button submit }.not_to change(Team, :count)
+			it "should not create a season" do
+				expect { click_button submit }.not_to change(season, :count)
 			end
 
 			describe "after submission" do
 				before { click_button submit }
 
-				it { should have_selector('title', text: "New Team") }
+				it { should have_selector('title', text: "New season") }
 				it { should have_selector('div.alert.alert-error') }
 			end
 		end
@@ -39,39 +39,39 @@ describe "Team pages" do
 				fill_in "Name", 			with: "AHA 2012 Season"
 			end
 
-			it "should create a team" do
-				expect { click_button submit }.to change(Team, :count).by(1)
+			it "should create a season" do
+				expect { click_button submit }.to change(season, :count).by(1)
 			end
 
-			describe "after saving the team" do
+			describe "after saving the season" do
 				before { click_button submit }
-				let(:team) { Team.find_by_name('AHA 2012 Season') }
+				let(:season) { season.find_by_name('AHA 2012 Season') }
 
-				it { should have_selector('title', text: "#{team.name}") }
-				it { should have_selector('div.alert.alert-success', text: 'New team created') }
+				it { should have_selector('title', text: "#{season.name}") }
+				it { should have_selector('div.alert.alert-success', text: 'New season created') }
 			end
 		end
 	end
 
-	describe "team show page" do
-		let(:team) { FactoryGirl.create(:team) }
-		before { visit team_path(team) }
+	describe "season show page" do
+		let(:season) { FactoryGirl.create(:season) }
+		before { visit season_path(season) }
 
-		it { should have_selector('h1',    text: "#{team.name}") }
-		it { should have_selector('title', text: "#{team.name}") }
+		it { should have_selector('h1',    text: "#{season.name}") }
+		it { should have_selector('title', text: "#{season.name}") }
 	end
 
-	describe "edit team" do
-		let(:team) { FactoryGirl.create(:team) }
-		before { visit edit_team_path(team) }
+	describe "edit season" do
+		let(:season) { FactoryGirl.create(:season) }
+		before { visit edit_season_path(season) }
 
-		describe "edit team page" do
-			it { should have_selector('h1',   text: "Update #{team.name}") }
-			it { should have_selector('title', text: "Edit #{team.name}") }
+		describe "edit season page" do
+			it { should have_selector('h1',   text: "Update #{season.name}") }
+			it { should have_selector('title', text: "Edit #{season.name}") }
 		end
 
 		describe "with invalid information" do
-			let(:submit) { "Update Team" }
+			let(:submit) { "Update season" }
 			before do
 				fill_in "Name", with: " "
 				click_button submit
@@ -82,7 +82,7 @@ describe "Team pages" do
 
 		# Need to find a way to test this as simple form uses a calendar selector
 		describe "with valid information" do
-			let(:submit) { "Update Team" }
+			let(:submit) { "Update season" }
 			let(:new_name) { "New" }
 
 			before do
@@ -92,7 +92,7 @@ describe "Team pages" do
 
 			it { should have_selector('title', text: "#{new_name}") }
 			it { should have_selector('div.alert.alert-success') }
-			specify { team.reload.name.should == new_name }
+			specify { season.reload.name.should == new_name }
 		end
 	end
 end

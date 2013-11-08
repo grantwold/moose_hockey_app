@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
 
 	def show
 		@player = Player.find(params[:id])
-		@teams = @player.teams.all
+		@seasons = @player.seasons.all
 	end
 
 	def create
