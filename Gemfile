@@ -9,6 +9,7 @@ gem 'faker'
 
 group :development do
 	gem 'annotate', '2.5.0'
+	gem 'meta_request'
 end
 
 

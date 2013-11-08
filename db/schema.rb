@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20131107121017) do
     t.string   "name"
   end
 
-  create_table "players_teams", :force => true do |t|
+  create_table "players_teams", :id => false, :force => true do |t|
     t.integer "player_id"
     t.integer "team_id"
   end

@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
 	def create
 		@team = Team.new(params[:team])
 		if @team.save
-			flash[:success] = "New Season created"
+			flash[:success] = "New team created"
 			redirect_to @team
 		else
 			render 'new'
@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
 
 	def show
 		@team = Team.find(params[:id])
+		@players = @team.players.all
 	end
 
 	def edit
@@ -23,7 +24,7 @@ class TeamsController < ApplicationController
 
 	def update
 		@team = Team.find(params[:id])
-		if @team.update_attributes(params[:player])
+		if @team.update_attributes(params[:team])
 			flash[:success] = "Team Updated"
 			redirect_to team_path(@team)
 		else

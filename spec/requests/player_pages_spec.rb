@@ -71,7 +71,7 @@ describe "Player pages" do
 
 		describe "edit player page" do
 			it { should have_selector('h1',    text: "Update #{player.name} stats") }
-			it { should have_selector('title', text: "edit #{player.name}") }
+			it { should have_selector('title', text: "Edit #{player.name}") }
 		end
 
 		describe "with invalid information" do

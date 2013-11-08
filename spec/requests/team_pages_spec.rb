@@ -32,12 +32,11 @@ describe "Team pages" do
 				it { should have_selector('div.alert.alert-error') }
 			end
 		end
-
+		
+		# Need to find a way to test this as simple form uses a calendar selector
 		describe "with valid information" do
 			before do
 				fill_in "Name", 			with: "AHA 2012 Season"
-				fill_in "Start of season", 	with: "2012-10-27"
-				fill_in "End of season", 	with: "2013-4-15"
 			end
 
 			it "should create a team" do
@@ -49,7 +48,7 @@ describe "Team pages" do
 				let(:team) { Team.find_by_name('AHA 2012 Season') }
 
 				it { should have_selector('title', text: "#{team.name}") }
-				it { should have_selector('div.alert.alert-success', text: 'New Team Created') }
+				it { should have_selector('div.alert.alert-success', text: 'New team created') }
 			end
 		end
 	end
@@ -74,32 +73,26 @@ describe "Team pages" do
 		describe "with invalid information" do
 			let(:submit) { "Update Team" }
 			before do
-				fill_in "Name", 			with: nil
-				fill_in "Start of season",	with: nil
-				fill_in "End of season", 	with: nil
+				fill_in "Name", with: " "
 				click_button submit
 			end
 
 			it { should have_selector('div.alert.alert-error') }
 		end
 
+		# Need to find a way to test this as simple form uses a calendar selector
 		describe "with valid information" do
 			let(:submit) { "Update Team" }
 			let(:new_name) { "New" }
-			let(:new_season_start) { "0000-00-00" }
-			let(:new_season_end) { "0000-00-00" }
+
 			before do
 				fill_in "Name", 			with: new_name
-				fill_in "Start of season", 	with: new_season_start
-				fill_in "End of season", 	with: new_season_end
 				click_button submit
 			end
 
 			it { should have_selector('title', text: "#{new_name}") }
 			it { should have_selector('div.alert.alert-success') }
 			specify { team.reload.name.should == new_name }
-			specify { team.reload.season_start == new_season_start }
-			specify { team.reload.season_end == new_season_end }
 		end
 	end
 end
