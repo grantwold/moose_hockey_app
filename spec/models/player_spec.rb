@@ -3,8 +3,6 @@
 # Table name: players
 #
 #  id               :integer          not null, primary key
-#  firstname        :string(255)
-#  lastname         :string(255)
 #  number           :integer
 #  gamesplayed      :integer
 #  goals            :integer
@@ -15,6 +13,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  position         :string(255)
+#  name             :string(255)
 #
 
 require 'spec_helper'
@@ -44,7 +43,7 @@ describe Player do
 	it { should respond_to(:shorthandedgoals) }
 	it { should respond_to(:powerplaygoals) }
 	it { should respond_to(:penalties) }
-	it { should have_and_belong_to_many(:seasons) }
+	it { should have_many(:seasons).through(:memberships) }
 	it { should accept_nested_attributes_for(:seasons) }
 
 	it { should be_valid }

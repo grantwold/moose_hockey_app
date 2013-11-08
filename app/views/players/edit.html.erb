@@ -25,7 +25,7 @@
 
 			<%= f.input :penalties, label: "PIM", placeholder: "#{@player.penalties}" %>
 
-			<%= f.association :teams, label: "Select Teams", as: :check_boxes %>
+			<%= f.association :seasons, label: "Select Teams", as: :check_boxes %>
 
 			<%= f.error :base %>
 			<%= f.submit "Update Player", class: "btn btn-large btn-primary" %>
