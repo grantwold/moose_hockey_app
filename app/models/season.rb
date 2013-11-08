@@ -13,8 +13,8 @@
 class Season < ActiveRecord::Base
   attr_accessible :season_end, :season_start, :name, :player_ids
 
-  has_many :memberships
-  has_many :players, through: :memberships
+  has_many :games
+  has_many :players, through: :games
   accepts_nested_attributes_for :players
 
   validates(:name, presence: true)

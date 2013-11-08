@@ -26,7 +26,7 @@ describe Season do
 	it { should respond_to(:name) }
 	it { should respond_to(:season_start) }
 	it { should respond_to(:season_end) }
-	it { should have_many(:players).through(:memberships) }
+	it { should have_many(:players).through(:games) }
 	it { should accept_nested_attributes_for(:players) }
 
 

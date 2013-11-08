@@ -13,18 +13,6 @@
 			<%= f.input :gamesplayed, 
 				label: "Games Played", placeholder: "#{@player.gamesplayed}" %>
 
-			<%= f.input :goals, placeholder: "#{@player.goals}" %>
-
-			<%= f.input :assists, placeholder: "#{@player.assists}" %>
-
-			<%= f.input :shorthandedgoals, 
-				label: "SHG", placeholder: "#{@player.shorthandedgoals}" %>
-
-			<%= f.input :powerplaygoals, 
-				label: "PPG", placeholder: "#{@player.powerplaygoals}" %>
-
-			<%= f.input :penalties, label: "PIM", placeholder: "#{@player.penalties}" %>
-
 			<%= f.association :seasons, label: "Select Teams", as: :check_boxes %>
 
 			<%= f.error :base %>

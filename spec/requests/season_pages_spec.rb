@@ -7,9 +7,6 @@ describe "Season pages" do
 	describe "new season page" do
 		before { visit new_season_path }
 
-		# Unfortunately I have bad naming.  The model is season, but it is really 
-		#creating a season.  However, the season might just be a tournament.  
-		# Just going to go with season.
 		it { should have_selector('h1', text: 'New Season Creation') }
 		it { should have_selector('title', text: full_title('New Season')) }
 	end

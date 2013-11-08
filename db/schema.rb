@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131108110956) do
+ActiveRecord::Schema.define(:version => 20131108123320) do
+
+  create_table "games", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "season_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "memberships", :force => true do |t|
     t.integer  "player_id"
@@ -23,13 +30,8 @@ ActiveRecord::Schema.define(:version => 20131108110956) do
   create_table "players", :force => true do |t|
     t.integer  "number"
     t.integer  "gamesplayed"
-    t.integer  "goals"
-    t.integer  "assists"
-    t.integer  "shorthandedgoals"
-    t.integer  "powerplaygoals"
-    t.integer  "penalties"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "position"
     t.string   "name"
   end
@@ -40,6 +42,17 @@ ActiveRecord::Schema.define(:version => 20131108110956) do
     t.date     "season_end"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "statistics", :force => true do |t|
+    t.integer  "goals"
+    t.integer  "assists"
+    t.integer  "shorthandedgoals"
+    t.integer  "powerplaygoals"
+    t.integer  "penalties"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "games_id"
   end
 
 end

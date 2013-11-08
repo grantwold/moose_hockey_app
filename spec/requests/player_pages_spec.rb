@@ -36,11 +36,6 @@ describe "Player pages" do
 				fill_in "Number",     	with: 00
 				fill_in "Position",		with: "Right Wing"
 				fill_in "Games Played", with: 18
-				fill_in "Goals",	  	with: 15
-				fill_in "Assists",	  	with: 10
-				fill_in "SHG", 		  	with: 1
-				fill_in "PPG",		  	with: 3
-				fill_in "PIM", 		  	with: 12
 			end
 
 			it "should create a player" do
@@ -81,11 +76,6 @@ describe "Player pages" do
 				fill_in "Number",     	with: " "
 				fill_in "Position",		with: " "
 				fill_in "Games Played", with: " "
-				fill_in "Goals",	  	with: " "
-				fill_in "Assists",	  	with: " "
-				fill_in "SHG", 		  	with: " "
-				fill_in "PPG",		  	with: " "
-				fill_in "PIM", 		  	with: " "
 				click_button submit
 			end
 

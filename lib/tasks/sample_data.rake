@@ -4,6 +4,7 @@ namespace :db do
 		Rake::Task['db:reset'].invoke
 		make_players
 		make_seasons
+		make_statistics
 	end
 end
 
@@ -15,20 +16,10 @@ def make_players
 		position_options		= ["Defense", "Right Wing", "Left Wing", "Center", "Goalie"]
 		position 				= position_options[rand(position_options.length)]
 		gamesplayed				= rand(10..21)
-		goals					= rand(30)
-		assists					= rand(30)
-		shorthandedgoals		= rand(6)
-		powerplaygoals			= rand(15)
-		penalties				= rand(41)
 		Player.create!(name: 			 name,
 					   number: 			 number,
 					   position: 		 position,
-					   gamesplayed: 	 gamesplayed,
-					   goals: 			 goals,
-					   assists: 		 assists,
-					   shorthandedgoals: shorthandedgoals,
-					   powerplaygoals: 	 powerplaygoals,
-					   penalties: 		 penalties)
+					   gamesplayed: 	 gamesplayed)
 	end
 end
 
@@ -42,8 +33,23 @@ def make_seasons
 		season_end 		= "#{year_options.sample}-#{month_options}-#{day_options}".to_date
 		month_ago		= rand(1..8)
 		season_start 	= season_end - month_ago.month
-		Season.create!(name: name,
+		Season.create!(name: 	   name,
 					 season_start: season_start,
-					 season_end: season_end)
+					 season_end:   season_end)
 	end
+end
+
+def make_statistics
+	Faker::Config.locale = :en
+	100.times do |n|
+		goals					= rand(30)
+		assists					= rand(30)
+		shorthandedgoals		= rand(6)
+		powerplaygoals			= rand(15)
+		penalties				= rand(41)
+		Statistics.create!(goals: goals,
+						   assists: 		 assists,
+						   shorthandedgoals: shorthandedgoals,
+						   powerplaygoals: 	 powerplaygoals,
+						   penalties: 		 penalties)
 end
