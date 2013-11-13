@@ -52,4 +52,5 @@ def make_statistics
 						   shorthandedgoals: shorthandedgoals,
 						   powerplaygoals: 	 powerplaygoals,
 						   penalties: 		 penalties)
+	end
 end

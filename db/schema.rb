@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(:version => 20131108123320) do
   create_table "games", :force => true do |t|
     t.integer  "player_id"
     t.integer  "season_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "statistic_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "memberships", :force => true do |t|

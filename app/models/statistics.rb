@@ -10,12 +10,13 @@
 #  penalties        :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  games_id         :integer
 #
 
 class Statistics < ActiveRecord::Base
   attr_accessible :goals, :assists, :shorthandedgoals, :powerplaygoals, :penalties
 
-  belongs_to :games
+  has_one :game
 
   validates(:goals, presence: true)
   validates(:assists, presence: true)
