@@ -1,6 +1,6 @@
 class StatisticsController < ApplicationController
 
 	def new
-		@statistic = Statistic.new(params[:id])
+		@statistic = Statistic.new
 	end
 end

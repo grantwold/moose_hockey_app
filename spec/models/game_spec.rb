@@ -8,6 +8,10 @@
 #  statistic_id :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  location     :string(255)
+#  opponent     :string(255)
+#  time         :datetime
+#  official     :boolean
 #
 
 require 'spec_helper'

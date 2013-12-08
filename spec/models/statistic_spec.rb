@@ -8,6 +8,7 @@
 #  shorthandedgoals :integer
 #  powerplaygoals   :integer
 #  penalties        :integer
+#  games_id         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
@@ -32,7 +33,8 @@ describe Statistic do
 	it { should respond_to(:shorthandedgoals) }
 	it { should respond_to(:powerplaygoals) }
 	it { should respond_to(:penalties) }
-	it { should have_one(:game) }
+	it { should respond_to(:games_id) }
+	it { should belong_to(:games) }
 
 	it { should be_valid }
 

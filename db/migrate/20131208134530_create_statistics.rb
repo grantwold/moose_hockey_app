@@ -6,6 +6,9 @@ class CreateStatistics < ActiveRecord::Migration
     	t.integer :shorthandedgoals
     	t.integer :powerplaygoals
     	t.integer :penalties
+
+      t.belongs_to :games
+      
       t.timestamps
     end
   end
