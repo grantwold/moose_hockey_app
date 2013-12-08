@@ -15,9 +15,12 @@
 #
 
 class Game < ActiveRecord::Base
-  
+ 	attr_accessible :location, :opponent, :time, :date, :official
+
   	belongs_to :player
 	belongs_to :season
 	has_one :statistic
+
+	validates(:location, presence: true)
 	
 end

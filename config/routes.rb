@@ -2,14 +2,16 @@ MooseHockeyApp::Application.routes.draw do
 
   resources :players
   resources :seasons
+  resources :games
 
   root to: 'static_pages#home'
 
   match '/new_player', to: 'players#new'
   match '/new_season', to: 'seasons#new'
+  match '/new_game',   to: 'games#new'
 
   match 'calendar', to: 'static_pages#calendar'
-  match 'roster', to: 'static_pages#roster'
+  match 'roster',   to: 'static_pages#roster'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

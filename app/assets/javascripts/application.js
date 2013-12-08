@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-rowlink.js
+//= require jquery.ui.datepicker
 //= require_tree .
 

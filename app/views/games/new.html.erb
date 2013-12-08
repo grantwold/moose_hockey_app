@@ -1,0 +1,16 @@
+<%= provide(:title, "New Game") %>
+<h1>Create a new game</h1>
+<div class="row-fluid form-horizontal">
+	<div class="span 6">
+		<%= simple_form_for(@game) do |f| %>
+			<%= f.error_notification %>
+			<%= f.input :time %>
+			<%= f.input :date, as: :datepicker %>
+			<%= f.input :location %>			
+			<%= f.input :opponent %>
+			<%= f.input :official %>
+			<%= f.error :base %>
+			<%= f.submit "Create Game", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

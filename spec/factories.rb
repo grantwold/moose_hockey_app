@@ -19,4 +19,11 @@ FactoryGirl.define do
 		powerplaygoals   "3"
 		penalties        "12"
 	end
+
+	factory :game do
+		location "Breck"
+		opponent "Ice Dogs"
+		time	 "2012-10-27 18:00"
+		official "true"
+	end
 end
