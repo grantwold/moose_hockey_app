@@ -12,7 +12,7 @@ FactoryGirl.define do
 		name		 "AHA 2012 Season"
 	end
 
-	factory :statistics do
+	factory :statistic do
 		goals        	 "15"
 		assists      	 "10"
 		shorthandedgoals "1"
