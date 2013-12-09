@@ -3,8 +3,6 @@
 # Table name: games
 #
 #  id               :integer          not null, primary key
-#  player_id        :integer
-#  season_id        :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  location         :string(255)
@@ -19,6 +17,7 @@
 #  penalties        :integer
 #  scrimmage        :boolean
 #  practice         :boolean
+#  season_id        :integer
 #
 
 require 'spec_helper'
@@ -30,7 +29,14 @@ describe Game do
 	  				   opponent: "Ice Dog", 
 	  				   time: "18:00",
 	  				   date: "2012-12-12", 
-	  				   official: true)
+	  				   official: true,
+	  				   scrimmage: false,
+	  				   practice: false,
+	  				   goals: 10,
+	  				   assists: 12,
+	  				   shorthandedgoals: 1,
+	  				   powerplaygoals: 2,
+	  				   penalties: 4)
 	end
   
  	subject { @game }
@@ -40,10 +46,18 @@ describe Game do
  	it { should respond_to(:time) }
  	it { should respond_to(:date) }
  	it { should respond_to(:official) }
- 	it { should respond_to(:player_id) }
- 	it { should respond_to(:season_id) }
- 	it { should belong_to(:player) }
- 	it { should belong_to(:season) }
+ 	it { should respond_to(:scrimmage) }
+ 	it { should respond_to(:practice) }
+ 	it { should respond_to(:goals) }
+ 	it { should respond_to(:assists) }
+ 	it { should respond_to(:shorthandedgoals) }
+ 	it { should respond_to(:powerplaygoals) }
+ 	it { should respond_to(:penalties) }
+ 	it { should have_and_belong_to_many(:seasons) }
+ 	it { should have_many(:memberships) }
+ 	it { should have_many(:players).through(:memberships) }
+ 	it { should accept_nested_attributes_for(:players) }
+ 	it { should accept_nested_attributes_for(:seasons) }
 
  	it { should be_valid }
 

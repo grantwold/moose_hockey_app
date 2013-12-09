@@ -16,6 +16,7 @@ class SeasonsController < ApplicationController
 	def show
 		@season = Season.find(params[:id])
 		@players = @season.players.all
+		@games = @season.games.all
 	end
 
 	def edit

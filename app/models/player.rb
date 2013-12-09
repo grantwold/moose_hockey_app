@@ -14,8 +14,9 @@
 class Player < ActiveRecord::Base
 	attr_accessible :name, :gamesplayed, :number, :position, :season_ids
 
-	has_many :games
-	has_many :seasons, through: :games
+	has_many :memberships
+	has_many :seasons, through: :memberships
+	has_many :games, through: :memberships
 	accepts_nested_attributes_for :seasons
 
 	validates(:name, presence: true)

@@ -3,8 +3,6 @@
 # Table name: games
 #
 #  id               :integer          not null, primary key
-#  player_id        :integer
-#  season_id        :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  location         :string(255)
@@ -19,14 +17,19 @@
 #  penalties        :integer
 #  scrimmage        :boolean
 #  practice         :boolean
+#  season_id        :integer
 #
 
 class Game < ActiveRecord::Base
  	attr_accessible :location, :opponent, :time, :date, :official, :scrimmage, :practice, 
- 					:goals, :assists, :shorthandedgoals, :powerplaygoals, :penalties
+ 					:goals, :assists, :shorthandedgoals, :powerplaygoals, :penalties, :player_ids,
+ 					:season_ids
 
-  	belongs_to :player
-	belongs_to :season
+	has_many :memberships
+	has_many :players, through: :memberships
+	has_and_belongs_to_many :seasons
+	accepts_nested_attributes_for :players
+	accepts_nested_attributes_for :seasons
 
 	validates(:date, presence: true)
 	

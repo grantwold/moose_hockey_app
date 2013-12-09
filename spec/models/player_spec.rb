@@ -28,7 +28,9 @@ describe Player do
 	it { should respond_to(:position) }
 	it { should respond_to(:number) }
 	it { should respond_to(:gamesplayed) }
-	it { should have_many(:seasons).through(:games) }
+	it { should have_many(:memberships) }
+	it { should have_many(:seasons).through(:memberships) }
+	it { should have_many(:games).through(:memberships) }
 	it { should accept_nested_attributes_for(:seasons) }
 
 	it { should be_valid }

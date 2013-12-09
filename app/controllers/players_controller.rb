@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
 	def show
 		@player = Player.find(params[:id])
 		@seasons = @player.seasons.all
+		@games = @player.games.all
 	end
 
 	def create

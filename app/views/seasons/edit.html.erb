@@ -1,16 +1,17 @@
 <% provide(:title, "Edit #{@season.name}") %>
 <h1>Update <%= "#{@season.name}" %></h1>
 <div class="row-fluid form-horizontal">
-	<div class="span6">
+	<div class="span 6">
 		<%= simple_form_for @season do |f| %>
 			<%= f.error_notification %>
 			<%= f.input :name, label: "Name", placeholder: "#{@season.name}" %>
 
-			<%= f.input :season_start, label: "Start of season", placeholder: "#{@season.season_start}" %>
+			<%= f.input :season_start, label: "Start of season", placeholder: "#{@season.season_start}", as: :datepicker %>
 
-			<%= f.input :season_end, label: "End of season", placeholder: "#{@season.season_end}" %>
+			<%= f.input :season_end, label: "End of season", placeholder: "#{@season.season_end}", as: :datepicker %>
 
 			<%= f.association :players, label: "Select players", as: :check_boxes %>
+			<%= f.association :games, label: "Select Games" , as: :check_boxes, label_method: :date %>
 
 			<%= f.error :base %>
 			<%= f.submit "Update Season", class: "btn btn-large btn-primary" %>

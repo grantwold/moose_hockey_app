@@ -16,6 +16,7 @@
 			<%= f.input :shorthandedgoals %>
 			<%= f.input :powerplaygoals %>
 			<%= f.input :penalties %>
+			<%= f.association :seasons, label: "Select Season", as: :check_boxes, class: 'game' %>
 			<%= f.error :base %>
 			<%= f.submit "Create Game", class: "btn btn-large btn-primary" %>
 		<% end %>
