@@ -18,6 +18,4 @@ class Season < ActiveRecord::Base
   accepts_nested_attributes_for :players
 
   validates(:name, presence: true)
-  validates(:season_start, presence: true)
-  validates(:season_end, presence: true)
 end

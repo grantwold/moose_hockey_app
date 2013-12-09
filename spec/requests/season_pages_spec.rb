@@ -30,10 +30,11 @@ describe "Season pages" do
 			end
 		end
 		
-		# Need to find a way to test this as simple form uses a calendar selector
 		describe "with valid information" do
 			before do
 				fill_in "Name", 			with: "AHA 2012 Season"
+				fill_in "Start of season",  with: "12/08/2013"
+				fill_in "End of season",	with: "12/08/2013"
 			end
 
 			it "should create a season" do

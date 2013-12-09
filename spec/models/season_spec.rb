@@ -32,13 +32,8 @@ describe Season do
 
 	it { should be_valid }
 
-	describe "when season start is not set" do
-		before { @season.season_start = " " }
-		it { should_not be_valid }
-	end
-
-	describe "when season end is not set" do
-		before { @season.season_end = " " }
+	describe "when name is not present" do
+		before { @season.name = " " }
 		it { should_not be_valid }
 	end
 end

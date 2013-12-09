@@ -4,11 +4,18 @@
 	<div class="span 6">
 		<%= simple_form_for(@game) do |f| %>
 			<%= f.error_notification %>
-			<%= f.input :time %>
 			<%= f.input :date, as: :datepicker %>
+			<%= f.input :time, as: :string %>			
 			<%= f.input :location %>			
 			<%= f.input :opponent %>
 			<%= f.input :official %>
+			<%= f.input :scrimmage %>
+			<%= f.input :practice %>
+			<%= f.input :goals %>
+			<%= f.input :assists %>
+			<%= f.input :shorthandedgoals %>
+			<%= f.input :powerplaygoals %>
+			<%= f.input :penalties %>
 			<%= f.error :base %>
 			<%= f.submit "Create Game", class: "btn btn-large btn-primary" %>
 		<% end %>

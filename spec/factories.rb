@@ -7,8 +7,8 @@ FactoryGirl.define do
 	end
 
 	factory :season do
-		season_start "2012-10-27"
-		season_end	 "2013-4-15"
+		season_start "12/08/2013"
+		season_end	 "12/09/2013"
 		name		 "AHA 2012 Season"
 	end
 
@@ -23,7 +23,8 @@ FactoryGirl.define do
 	factory :game do
 		location "Breck"
 		opponent "Ice Dogs"
-		time	 "2012-10-27 18:00"
+		time	 "18:00"
+		date	 "12/08/2013"
 		official "true"
 	end
 end
