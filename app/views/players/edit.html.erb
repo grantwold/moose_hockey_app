@@ -1,5 +1,5 @@
 <% provide(:title, "Edit #{@player.name}") %>
-<h1>Update <%= "#{@player.name}" %> stats</h1>
+<h1>Update <%= "#{@player.name}" %></h1>
 <div class="row-fluid form-horizontal">
 	<div class="span6">
 		<%= simple_form_for @player do |f| %>
@@ -7,7 +7,8 @@
 			<%= f.input :name, label: "Name", placeholder: "#{@player.name}" %>
 			<%= f.input :number, placeholder: "#{@player.number}" %>
 			<%= f.input :position %>
-			<%= f.association :seasons, label: "Select Teams", as: :check_boxes %>
+			<%= f.association :seasons, label: "Change Team Membership", as: :check_boxes %>
+			<%= f.association :games, label: "Change Games Played", label_method: :date, as: :check_boxes %>
 			<%= f.error :base %>
 			<%= f.submit "Update Player", class: "btn btn-large btn-primary" %>
 		<% end %>

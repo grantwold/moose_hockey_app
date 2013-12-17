@@ -63,5 +63,7 @@ def make_game
 		opponent_ppg = rand(0..4)
 		moose_penalties = rand(0..16)
 		opponent_penalties = rand(0..16)
+	end
+end
 		
 

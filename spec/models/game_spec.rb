@@ -30,8 +30,9 @@ require 'spec_helper'
 
 describe Game do
 
+	let(:season) { FactoryGirl.create(:season) }
 	before do
-	  @game = Game.new(location: "Breck", 
+	  @game = season.games.build(location: "Breck", 
 	  				   opponent: "Ice Dog", 
 	  				   time: "18:00",
 	  				   date: "2012-12-12", 
@@ -49,7 +50,7 @@ describe Game do
 	  				   moose_penalties: 4,
 	  				   opponent_penalties: 10,
 	  				   moose_shots_on_goal: 50,
-	  				   opponents_shots_on_goal: 25)
+	  				   opponent_shots_on_goal: 25)
 	end
   
  	subject { @game }
@@ -72,17 +73,32 @@ describe Game do
  	it { should respond_to(:moose_penalties) }
  	it { should respond_to(:opponent_penalties) }
  	it { should respond_to(:moose_shots_on_goal) }
- 	it { should respond_to(:opponents_shots_on_goal) }
- 	it { should have_and_belong_to_many(:seasons) }
+ 	it { should respond_to(:opponent_shots_on_goal) }
+ 	it { should respond_to(:season_id) }
+ 	it { should respond_to(:season) }
+ 	its(:season) { should == season }
+ 	it { should belong_to(:season) }
  	it { should have_many(:memberships) }
  	it { should have_many(:players).through(:memberships) }
  	it { should accept_nested_attributes_for(:players) }
- 	it { should accept_nested_attributes_for(:seasons) }
 
  	it { should be_valid }
 
  	describe "when date is not set" do
  		before { @game.date = " " }
  		it { should_not be_valid }
+ 	end
+
+ 	describe "when season id is not present" do
+ 		before { @game.season_id = nil }
+ 		it { should_not be_valid }
+ 	end
+
+ 	describe "accessible attributes" do
+ 		it "should not allow access to season_id" do
+ 			expect do
+ 				Game.new(season_id: season.id)
+ 			end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+ 		end
  	end
 end

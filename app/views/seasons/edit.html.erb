@@ -11,7 +11,6 @@
 			<%= f.input :season_end, label: "End of season", placeholder: "#{@season.season_end}", as: :datepicker %>
 
 			<%= f.association :players, label: "Select players", as: :check_boxes %>
-			<%= f.association :games, label: "Select Games" , as: :check_boxes, label_method: :date %>
 
 			<%= f.error :base %>
 			<%= f.submit "Update Season", class: "btn btn-large btn-primary" %>

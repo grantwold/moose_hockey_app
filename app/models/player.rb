@@ -11,12 +11,11 @@
 #
 
 class Player < ActiveRecord::Base
-	attr_accessible :name, :number, :position, :season_ids
+	attr_accessible :name, :number, :position, :season_ids, :game_ids
 
 	has_many :memberships
 	has_many :seasons, through: :memberships
 	has_many :games, through: :memberships
-	accepts_nested_attributes_for :seasons
 
 	validates(:name, presence: true)
 	validates(:position, presence: true)

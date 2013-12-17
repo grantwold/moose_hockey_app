@@ -20,7 +20,7 @@ FactoryGirl.define do
 		scrimmage 			   "false"
 		practice 			   "false"
 		moose_goals 		   "5"
-		opponnent_goals 	   "4"
+		opponent_goals 	   	   "4"
 		moose_assists 		   "8"
 		opponent_assists 	   "4"
 		moose_shg 			   "1"
@@ -31,5 +31,6 @@ FactoryGirl.define do
 		opponent_penalties 	   "10"
 		moose_shots_on_goal    "45"
 		opponent_shots_on_goal "20"
+		season
 	end
 end

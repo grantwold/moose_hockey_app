@@ -11,13 +11,12 @@
 #
 
 class Season < ActiveRecord::Base
-  attr_accessible :season_end, :season_start, :name, :player_ids, :game_ids
+  attr_accessible :season_end, :season_start, :name, :player_ids
 
   has_many :memberships
   has_many :players, through: :memberships
-  has_and_belongs_to_many :games
+  has_many :games, dependent: :destroy
   accepts_nested_attributes_for :players
-  accepts_nested_attributes_for :games
 
   validates(:name, presence: true)
 end

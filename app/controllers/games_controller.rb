@@ -7,6 +7,7 @@ class GamesController < ApplicationController
 	def create
 		@date = params[:date] ? Date.parse(params[:date]) : Date.today
 		@game = Game.new(params[:game])
+		@game.season_id = params[:game][:season_id]
 		if @game.save
 			flash[:success] = "New game created"
 			redirect_to @game

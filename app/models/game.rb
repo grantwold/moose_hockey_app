@@ -29,16 +29,15 @@
 class Game < ActiveRecord::Base
  	attr_accessible :location, :opponent, :time, :date, :official, :scrimmage, 
  					:practice, :opponent_goals, :opponent_assists, :opponent_shg, 
- 					:opponent_ppg, :opponent_penalties, :opponents_shots_on_goal, 
+ 					:opponent_ppg, :opponent_penalties, :opponent_shots_on_goal, 
  					:moose_goals, :moose_assists, :moose_shg, :moose_ppg, 
- 					:moose_penalties, :moose_shots_on_goal, :player_ids, :season_ids
+ 					:moose_penalties, :moose_shots_on_goal, :season_id
 
 	has_many :memberships
 	has_many :players, through: :memberships
-	has_and_belongs_to_many :seasons
+	belongs_to :season
 	accepts_nested_attributes_for :players
-	accepts_nested_attributes_for :seasons
 
-	validates(:date, presence: true)
-	
+	validates :date, presence: true
+	validates :season_id, presence: true
 end
