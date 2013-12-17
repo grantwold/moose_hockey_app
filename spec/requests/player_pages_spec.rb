@@ -35,7 +35,6 @@ describe "Player pages" do
 				fill_in "Name", 		with: "Example Player"
 				fill_in "Number",     	with: 00
 				fill_in "Position",		with: "Right Wing"
-				fill_in "Games Played", with: 18
 			end
 
 			it "should create a player" do
@@ -75,7 +74,6 @@ describe "Player pages" do
 				fill_in "Name",			with: " "
 				fill_in "Number",     	with: " "
 				fill_in "Position",		with: " "
-				fill_in "Games Played", with: " "
 				click_button submit
 			end
 

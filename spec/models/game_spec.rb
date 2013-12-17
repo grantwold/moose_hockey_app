@@ -2,22 +2,28 @@
 #
 # Table name: games
 #
-#  id               :integer          not null, primary key
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  location         :string(255)
-#  opponent         :string(255)
-#  official         :boolean
-#  time             :time
-#  date             :date
-#  goals            :integer
-#  assists          :integer
-#  shorthandedgoals :integer
-#  powerplaygoals   :integer
-#  penalties        :integer
-#  scrimmage        :boolean
-#  practice         :boolean
-#  season_id        :integer
+#  id                      :integer          not null, primary key
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  location                :string(255)
+#  opponent                :string(255)
+#  official                :boolean
+#  time                    :time
+#  date                    :date
+#  scrimmage               :boolean
+#  practice                :boolean
+#  moose_goals             :integer
+#  opponent_goals          :integer
+#  moose_assists           :integer
+#  opponent_assists        :integer
+#  moose_shg               :integer
+#  opponent_shg            :integer
+#  moose_ppg               :integer
+#  opponent_ppg            :integer
+#  moose_penalties         :integer
+#  opponent_penalties      :integer
+#  opponents_shots_on_goal :integer
+#  moose_shots_on_goal     :integer
 #
 
 require 'spec_helper'
@@ -32,11 +38,18 @@ describe Game do
 	  				   official: true,
 	  				   scrimmage: false,
 	  				   practice: false,
-	  				   goals: 10,
-	  				   assists: 12,
-	  				   shorthandedgoals: 1,
-	  				   powerplaygoals: 2,
-	  				   penalties: 4)
+	  				   moose_goals: 10,
+	  				   opponent_goals: 5,
+	  				   moose_assists: 12,
+	  				   opponent_assists: 10,
+	  				   moose_shg: 1,
+	  				   opponent_shg: 0,
+	  				   moose_ppg: 2,
+	  				   opponent_ppg: 1,
+	  				   moose_penalties: 4,
+	  				   opponent_penalties: 10,
+	  				   moose_shots_on_goal: 50,
+	  				   opponents_shots_on_goal: 25)
 	end
   
  	subject { @game }
@@ -48,11 +61,18 @@ describe Game do
  	it { should respond_to(:official) }
  	it { should respond_to(:scrimmage) }
  	it { should respond_to(:practice) }
- 	it { should respond_to(:goals) }
- 	it { should respond_to(:assists) }
- 	it { should respond_to(:shorthandedgoals) }
- 	it { should respond_to(:powerplaygoals) }
- 	it { should respond_to(:penalties) }
+ 	it { should respond_to(:moose_goals) }
+ 	it { should respond_to(:opponent_goals) }
+ 	it { should respond_to(:moose_assists) }
+ 	it { should respond_to(:opponent_assists) }
+ 	it { should respond_to(:moose_shg) }
+ 	it { should respond_to(:opponent_shg) }
+ 	it { should respond_to(:moose_ppg) }
+ 	it { should respond_to(:opponent_ppg) }
+ 	it { should respond_to(:moose_penalties) }
+ 	it { should respond_to(:opponent_penalties) }
+ 	it { should respond_to(:moose_shots_on_goal) }
+ 	it { should respond_to(:opponents_shots_on_goal) }
  	it { should have_and_belong_to_many(:seasons) }
  	it { should have_many(:memberships) }
  	it { should have_many(:players).through(:memberships) }

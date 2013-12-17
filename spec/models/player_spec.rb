@@ -2,13 +2,12 @@
 #
 # Table name: players
 #
-#  id          :integer          not null, primary key
-#  number      :integer
-#  gamesplayed :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  position    :string(255)
-#  name        :string(255)
+#  id         :integer          not null, primary key
+#  number     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  position   :string(255)
+#  name       :string(255)
 #
 
 require 'spec_helper'
@@ -18,8 +17,7 @@ describe Player do
 	before do
 		@player = Player.new(name: "Example Player", 
 							 number: 00,
-							 position: "Right Wing",
-							 gamesplayed: 18)
+							 position: "Right Wing")
 	end
 
 	subject { @player }
@@ -27,7 +25,6 @@ describe Player do
 	it { should respond_to(:name) }
 	it { should respond_to(:position) }
 	it { should respond_to(:number) }
-	it { should respond_to(:gamesplayed) }
 	it { should have_many(:memberships) }
 	it { should have_many(:seasons).through(:memberships) }
 	it { should have_many(:games).through(:memberships) }
@@ -47,11 +44,6 @@ describe Player do
 
 	describe "when number is not present" do
 		before { @player.number = " " }
-		it { should_not be_valid }
-	end
-
-	describe "when gamesplayed is not present" do
-		before { @player.gamesplayed = " " }
 		it { should_not be_valid }
 	end
 end

@@ -5,16 +5,9 @@
 		<%= simple_form_for @player do |f| %>
 			<%= f.error_notification %>
 			<%= f.input :name, label: "Name", placeholder: "#{@player.name}" %>
-
 			<%= f.input :number, placeholder: "#{@player.number}" %>
-
 			<%= f.input :position %>
-
-			<%= f.input :gamesplayed, 
-				label: "Games Played", placeholder: "#{@player.gamesplayed}" %>
-
 			<%= f.association :seasons, label: "Select Teams", as: :check_boxes %>
-
 			<%= f.error :base %>
 			<%= f.submit "Update Player", class: "btn btn-large btn-primary" %>
 		<% end %>

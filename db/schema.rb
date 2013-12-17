@@ -11,23 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209173305) do
+ActiveRecord::Schema.define(:version => 20131216225627) do
 
   create_table "games", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "location"
     t.string   "opponent"
     t.boolean  "official"
     t.time     "time"
     t.date     "date"
-    t.integer  "goals"
-    t.integer  "assists"
-    t.integer  "shorthandedgoals"
-    t.integer  "powerplaygoals"
-    t.integer  "penalties"
     t.boolean  "scrimmage"
     t.boolean  "practice"
+    t.integer  "moose_goals"
+    t.integer  "opponent_goals"
+    t.integer  "moose_assists"
+    t.integer  "opponent_assists"
+    t.integer  "moose_shg"
+    t.integer  "opponent_shg"
+    t.integer  "moose_ppg"
+    t.integer  "opponent_ppg"
+    t.integer  "moose_penalties"
+    t.integer  "opponent_penalties"
+    t.integer  "opponents_shots_on_goal"
+    t.integer  "moose_shots_on_goal"
   end
 
   create_table "games_seasons", :force => true do |t|
@@ -45,9 +52,8 @@ ActiveRecord::Schema.define(:version => 20131209173305) do
 
   create_table "players", :force => true do |t|
     t.integer  "number"
-    t.integer  "gamesplayed"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "position"
     t.string   "name"
   end
