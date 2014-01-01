@@ -2,28 +2,29 @@
 #
 # Table name: games
 #
-#  id                      :integer          not null, primary key
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  location                :string(255)
-#  opponent                :string(255)
-#  official                :boolean
-#  time                    :time
-#  date                    :date
-#  scrimmage               :boolean
-#  practice                :boolean
-#  moose_goals             :integer
-#  opponent_goals          :integer
-#  moose_assists           :integer
-#  opponent_assists        :integer
-#  moose_shg               :integer
-#  opponent_shg            :integer
-#  moose_ppg               :integer
-#  opponent_ppg            :integer
-#  moose_penalties         :integer
-#  opponent_penalties      :integer
-#  opponents_shots_on_goal :integer
-#  moose_shots_on_goal     :integer
+#  id                     :integer          not null, primary key
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  location               :string(255)
+#  opponent               :string(255)
+#  official               :boolean
+#  time                   :time
+#  date                   :date
+#  scrimmage              :boolean
+#  practice               :boolean
+#  moose_goals            :integer
+#  opponent_goals         :integer
+#  moose_assists          :integer
+#  opponent_assists       :integer
+#  moose_shg              :integer
+#  opponent_shg           :integer
+#  moose_ppg              :integer
+#  opponent_ppg           :integer
+#  moose_penalties        :integer
+#  opponent_penalties     :integer
+#  opponent_shots_on_goal :integer
+#  moose_shots_on_goal    :integer
+#  season_id              :integer
 #
 
 class Game < ActiveRecord::Base

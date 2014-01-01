@@ -2,12 +2,13 @@
 #
 # Table name: seasons
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  season_start :date
-#  season_end   :date
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  season_start   :date
+#  season_end     :date
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  current_season :boolean          default(FALSE)
 #
 
 require 'spec_helper'
@@ -27,18 +28,40 @@ describe Season do
 	it { should respond_to(:season_start) }
 	it { should respond_to(:season_end) }
 	it { should respond_to(:games) }
+	it { should respond_to(:current_season) }
 	it { should have_many(:memberships) }
 	it { should have_many(:players).through(:memberships) }
 	it { should have_many(:games) }
 	it { should accept_nested_attributes_for(:players) }
 
 	it { should be_valid }
+	it { should_not be_current_season }
 
 	describe "when name is not present" do
 		before { @season.name = " " }
 		it { should_not be_valid }
 	end
 
+	describe "with current_season attribute set to 'true'" do
+		before { @season.toggle!(:current_season) }
+
+		it { should be_current_season }
+	end
+
+	# Possible bug where the object is not reloaded in memory
+	# causing a game to be created under the wrong season.
+	describe "when two seasons are set to current_season" do
+		before do
+			@season.toggle!(:current_season)
+			@season.save
+			@season1 = Season.new(name: "Name")
+			@season1.toggle!(:current_season)
+			@season1.save
+		end
+
+		specify { @season.reload.current_season.should == false }
+	end
+ 	
 	describe "game associations" do
 
 		before { @season.save }

@@ -29,5 +29,27 @@ describe "Game Pages" do
 				it { should have_selector('div.alert.alert-error') }
 			end
 		end
+
+		describe "with valid information" do
+			let!(:season) { FactoryGirl.create(:season) }
+			let(:submit) { "Create Game" }
+			before do
+				visit new_game_path
+				fill_in "Date", with: "01/22/2014"
+				select season.name, :from => 'Season'
+			end
+
+			it "should create a game" do
+				expect { click_button submit }.to change(Game, :count).by(1)
+			end
+
+			describe "after saving the game" do
+				before { click_button submit }
+				let(:game) { Game.find_by_date('2014-01-22') }
+
+				it { should have_selector('title', text: "#{game.date}") }
+				it { should have_selector('div.alert.alert-success', text: 'New game created') }
+			end
+		end
 	end
 end

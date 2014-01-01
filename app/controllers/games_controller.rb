@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
 	def create
 		@date = params[:date] ? Date.parse(params[:date]) : Date.today
-		@game = Game.new(params[:game])
+		@game = Game.build(params[:game])
 		@game.season_id = params[:game][:season_id]
 		if @game.save
 			flash[:success] = "New game created"
@@ -18,5 +18,19 @@ class GamesController < ApplicationController
 
 	def show
 		@game = Game.find(params[:id])
+	end
+
+	def edit
+		@game = Game.find(params[:id])
+	end
+
+	def update
+		@game = Game.find(params[:id])
+		if  @game.update_attributes(params[:game])
+			flash[:success] = "Game Updated"
+			redirect_to game_path(@game)
+		else
+			render 'edit'
+		end
 	end
 end
