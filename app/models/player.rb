@@ -16,6 +16,7 @@ class Player < ActiveRecord::Base
 	has_many :memberships
 	has_many :seasons, through: :memberships
 	has_many :games, through: :memberships
+	accepts_nested_attributes_for :seasons
 
 	validates(:name, presence: true)
 	validates(:position, presence: true)
