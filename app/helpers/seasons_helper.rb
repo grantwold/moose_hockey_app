@@ -1,6 +1,11 @@
 module SeasonsHelper
 
-	def falsify_all_others
-  		self.class.where('id != ? and current_season', self.id).update_all("current_season = 'false'")
+	def current_season=(season)
+		@current_season = season
 	end
+
+	def current_season
+		@current_season = Season.find_by_current_season(:true)
+	end
+	
 end

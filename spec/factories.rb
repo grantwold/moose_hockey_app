@@ -9,6 +9,10 @@ FactoryGirl.define do
 		season_start "12/08/2013"
 		season_end	 "12/09/2013"
 		name		 "AHA 2012 Season"
+		
+		factory :current_season do
+			current_season true
+		end
 	end
 
 	factory :game do

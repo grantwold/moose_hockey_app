@@ -4,6 +4,8 @@ describe "Game Pages" do
 
 	subject { page }
 
+	let!(:current_season) { FactoryGirl.create(:current_season) }
+
 	describe "new game page" do
 		before { visit new_game_path }
 
@@ -12,18 +14,17 @@ describe "Game Pages" do
 	end
 
 	describe "create new game" do
-
-		before { visit new_game_path }
-
-		let(:submit) { "Create Game" }
+		before do
+			visit new_game_path
+		end
 
 		describe "with invalid information" do
 			it "should not create a game" do
-				expect { click_button submit }.not_to change(Game, :count)
+				expect { click_button "Create Game" }.should_not change(Game, :count)
 			end
 
 			describe "after submission" do
-				before { click_button submit }
+				before { click_button "Create Game" }
 
 				it { should have_selector('title', text: "New Game") }
 				it { should have_selector('div.alert.alert-error') }
@@ -31,21 +32,17 @@ describe "Game Pages" do
 		end
 
 		describe "with valid information" do
-			let!(:season) { FactoryGirl.create(:season) }
-			let(:submit) { "Create Game" }
-			before do
-				visit new_game_path
-				fill_in "Date", with: "01/22/2014"
-				select season.name, :from => 'Season'
-			end
+			let!(:current_season) { FactoryGirl.create(:current_season) }
+
+			before { fill_in "Date", with: "2014-01-12" }
 
 			it "should create a game" do
-				expect { click_button submit }.to change(Game, :count).by(1)
+				expect { click_button "Create Game" }.should change(Game, :count).by(1)
 			end
 
 			describe "after saving the game" do
-				before { click_button submit }
-				let(:game) { Game.find_by_date('2014-01-22') }
+				before { click_button "Create Game" }
+				let(:game) { Game.find_by_date("2014-01-12") }
 
 				it { should have_selector('title', text: "#{game.date}") }
 				it { should have_selector('div.alert.alert-success', text: 'New game created') }

@@ -4,7 +4,11 @@
 	<div class="span 6">
 		<%= simple_form_for(@game) do |f| %>
 			<%= f.error_notification %>
+			<% if Rails.env.test? %>
+				<%= f.input :date, label: 'Date', as: :text %>
+			<% else %>
 			<%= f.input :date, as: :datepicker %>
+			<% end %>
 			<%= f.input :time, as: :string %>			
 			<%= f.input :location %>			
 			<%= f.input :opponent %>
@@ -21,7 +25,6 @@
 			<%= f.input :opponent_ppg, input_html: { value: '0' } %>
 			<%= f.input :moose_penalties, input_html: { value: '0' } %>
 			<%= f.input :opponent_penalties, input_html: { value: '0' } %>
-			<%= f.association :season, id: "Season" %>
 			<%= f.error :base %>
 			<%= f.submit "Create Game", class: "btn btn-large btn-primary" %>
 		<% end %>

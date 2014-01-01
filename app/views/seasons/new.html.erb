@@ -7,6 +7,7 @@
 			<%= f.input :name, label: "Name" %>
 			<%= f.input :season_start, label: "Start of season", as: :datepicker %>
 			<%= f.input :season_end, label: "End of season", as: :datepicker %>
+			<%= f.input :current_season, label: "Current Season" %>
 			<%= f.association :players, label: "Select players", as: :check_boxes %>
 			<%= f.error :base %>
 			<%= f.submit "Create Season", class: "btn btn-large btn-primary" %>

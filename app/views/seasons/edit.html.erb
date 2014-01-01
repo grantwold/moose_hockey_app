@@ -10,6 +10,8 @@
 
 			<%= f.input :season_end, label: "End of season", placeholder: "#{@season.season_end}", as: :datepicker %>
 
+			<%= f.input :current_season, label: "Current Season", placeholder: "#{@season.current_season}" %>
+
 			<%= f.association :players, label: "Select players", as: :check_boxes %>
 
 			<%= f.error :base %>

@@ -32,7 +32,7 @@ class Game < ActiveRecord::Base
  					:practice, :opponent_goals, :opponent_assists, :opponent_shg, 
  					:opponent_ppg, :opponent_penalties, :opponent_shots_on_goal, 
  					:moose_goals, :moose_assists, :moose_shg, :moose_ppg, 
- 					:moose_penalties, :moose_shots_on_goal, :season_id
+ 					:moose_penalties, :moose_shots_on_goal
 
 	has_many :memberships
 	has_many :players, through: :memberships
