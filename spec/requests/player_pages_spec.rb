@@ -85,7 +85,7 @@ describe "Player pages" do
 			let(:new_position) { "New Position" }
 			let(:new_number) { 100 }
 			before do
-				fill_in "Name", 	with: new_name
+				fill_in "Name", 		with: new_name
 				fill_in "Number",     	with: new_number
 				fill_in "Position",		with: new_position
 				click_button "Update Player"

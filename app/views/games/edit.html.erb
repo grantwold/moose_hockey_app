@@ -1,0 +1,42 @@
+<% provide(:title, "Edit #{@game.date}") %>
+<h1>Update game on <%= @game.date %></h1>
+<div class="row-fluid form-horizontal">
+	<div class="span6">
+		<%= simple_form_for(@game) do |f| %>
+			<%= f.error_notification %>
+			<!-- If else needed to simplify tests.
+				should return later to test that valid date
+				options are being saved to the database. -->
+			<% if Rails.env.test? %>
+				<%= f.input :date, label: 'Date', as: :text %>
+			<% else %>
+				<%= f.input :date, as: :datepicker, placeholder: "#{@game.date}"  %>
+			<% end %>
+			<%= f.input :time,  as: :string, placeholder:"#{@game.time}" %>
+			<%= f.input :location, placeholder:"#{@game.location}" %>
+			<%= f.input :opponent, placeholder:"#{@game.opponent}" %>
+			<%= f.input :official, placeholder:"#{@game.official}", 
+
+									wrapper_html: { class: 'game_class' } %>
+			<%= f.input :scrimmage, placeholder:"#{@game.scrimmage}", 
+
+									wrapper_html: { class: 'game_class' } %>
+
+			<%= f.input :practice, placeholder:"#{@game.practice}", 
+									wrapper_html: { class: 'game_class' } %>
+
+			<%= f.input :moose_goals, placeholder:"#{@game.moose_goals}" %>
+			<%= f.input :opponent_goals, placeholder:"#{@game.opponent_goals}" %>
+			<%= f.input :moose_assists, placeholder:"#{@game.moose_assists}" %>
+			<%= f.input :opponent_assists, placeholder:"#{@game.opponent_assists}" %>
+			<%= f.input :moose_shg, placeholder:"#{@game.moose_shg}" %>
+			<%= f.input :opponent_shg, placeholder:"#{@game.opponent_shg}" %>
+			<%= f.input :moose_ppg, placeholder:"#{@game.moose_ppg}" %>
+			<%= f.input :opponent_ppg, placeholder:"#{@game.opponent_ppg}" %>
+			<%= f.input :moose_penalties, placeholder:"#{@game.moose_penalties}" %>
+			<%= f.input :opponent_penalties, placeholder:"#{@game.opponent_penalties}" %>
+			<%= f.error :base %>
+			<%= f.submit "Update Game", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

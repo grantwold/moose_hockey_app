@@ -49,4 +49,31 @@ describe "Game Pages" do
 			end
 		end
 	end
+
+	describe "edit game page" do
+		let(:season) { FactoryGirl.create(:season) }
+		let(:game) { FactoryGirl.create(:game, season: season) }
+		before { visit edit_game_path(game) }
+
+		describe "edit player page" do
+			it { should have_selector('h1',    text: "Update game on #{game.date}") }
+			it { should have_selector('title', text: "Edit #{game.date}") }
+		end
+
+		# Possibly need a test here for invalid information.
+		# Currently simple_form fills the textbox with the games
+		# date.  This makes putting an invalid date in difficult.
+		describe "with valid information" do
+			let(:new_date) { "2014-02-12" }
+
+			before do
+				fill_in "Date", with: new_date
+				click_button "Update Game"
+			end
+
+			it { should have_selector('title', text: "#{new_date}") }
+			it { should have_selector('div.alert.alert-success') }
+			specify { game.reload.date.strftime("%Y-%m-%-d").should == new_date }
+		end
+	end
 end

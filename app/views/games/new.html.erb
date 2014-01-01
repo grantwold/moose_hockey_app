@@ -4,10 +4,13 @@
 	<div class="span 6">
 		<%= simple_form_for(@game) do |f| %>
 			<%= f.error_notification %>
+			<!-- If else needed to simplify tests.
+				should return later to test that valid date
+				options are being saved to the database. -->
 			<% if Rails.env.test? %>
 				<%= f.input :date, label: 'Date', as: :text %>
 			<% else %>
-			<%= f.input :date, as: :datepicker %>
+				<%= f.input :date, as: :datepicker %>
 			<% end %>
 			<%= f.input :time, as: :string %>			
 			<%= f.input :location %>			
