@@ -17,7 +17,7 @@ class Season < ActiveRecord::Base
 
   has_many :memberships
   has_many :players, through: :memberships
-  has_many :games, dependent: :destroy
+  has_many :games, inverse_of: :season, dependent: :destroy
   accepts_nested_attributes_for :players
 
   validates(:name, presence: true)

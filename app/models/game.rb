@@ -36,7 +36,7 @@ class Game < ActiveRecord::Base
 
 	has_many :memberships
 	has_many :players, through: :memberships
-	belongs_to :season
+	belongs_to :season, inverse_of: :games
 	accepts_nested_attributes_for :players
 
 	validates :date, presence: true
